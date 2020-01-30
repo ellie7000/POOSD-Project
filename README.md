@@ -22,3 +22,4 @@ Our product: Is more user friendly, interactive, and visually appealing.
 - [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
 - [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1580002156)
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
+- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
