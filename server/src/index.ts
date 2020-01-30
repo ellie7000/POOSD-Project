@@ -6,7 +6,7 @@ const app = Express();
 const port = 8080;
 
 // define a route handler for the default home page
-app.get("/", (_:any, res: any) => {
+app.get("/", (req: any, res: any) => {
     res.send("Hello world!");
 });
 
