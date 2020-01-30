@@ -1,6 +1,9 @@
-const express = require("express");
-const app = express();
-const port = 8080; // default port to listen
+// Using ES6 imports
+import Mongoose from 'mongoose';
+import Express from 'express';
+
+const app = Express();
+const port = 8080;
 
 // define a route handler for the default home page
 app.get("/", (_:any, res: any) => {
