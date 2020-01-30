@@ -35,27 +35,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(require("express"));
-var db_1 = __importDefault(require("./db"));
-var app = express_1.default();
-var port = 8080;
-// define a route handler for the default home page
-app.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
-            case 1:
-                _a.sent();
-                db_1.default.classes.find({}).toArray().then(function (stuff) { return res.send(JSON.stringify(stuff)); });
-                return [2 /*return*/];
-        }
-    });
-}); });
-// start the Express server
-app.listen(port, function () {
-    console.log("server started at http://localhost:" + port);
-});
+var mongodb = require("mongodb");
+var Database;
+(function (Database) {
+    function connectToMongo() {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                if (Database.db)
+                    return [2 /*return*/, Promise.resolve(Database.db)];
+                return [2 /*return*/, mongodb.connect('mongodb://localhost:27017', {
+                        bufferMaxEntries: 0,
+                        reconnectTries: 5000,
+                        useNewUrlParser: true,
+                        useUnifiedTopology: true
+                    }).then(function (client) {
+                        client = client;
+                        Database.db = client.db("POOSD");
+                        Database.classes = Database.db.collection("Classes");
+                        return Database.db;
+                    })];
+            });
+        });
+    }
+    Database.connectToMongo = connectToMongo;
+    function disconnectFromMongo() {
+        Database.client.close();
+    }
+    Database.disconnectFromMongo = disconnectFromMongo;
+})(Database || (Database = {}));
+module.exports = Database;

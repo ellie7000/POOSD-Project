@@ -1,13 +1,14 @@
 // Using ES6 imports
-import Mongoose from 'mongoose';
 import Express from 'express';
+import Database from './db';
 
 const app = Express();
 const port = 8080;
 
 // define a route handler for the default home page
-app.get("/", (req: any, res: any) => {
-    res.send("Hello world!");
+app.get("/", async (req: any, res: any) => {
+    await Database.connectToMongo();
+    Database.classes.find({}).toArray().then((stuff) => res.send(JSON.stringify(stuff)));
 });
 
 // start the Express server
