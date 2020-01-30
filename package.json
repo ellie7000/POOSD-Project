@@ -1,0 +1,30 @@
+{
+  "name": "POOSD-Project",
+  "version": "1.0.0",
+  "description": "For: UCF Students   Who: Want to make a graduation plan   The: KnightsPath Course Planner    Is a: Website    That: Recommends you customized courses based on your career interests and generates a long term plan    Unlike: MyUCF’s MyKnight Audit which is inconvenient and hard to visualize your progress    Our product: Is more user friendly, interactive, and visually appealing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsc && node build/index.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellie7000/POOSD-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellie7000/POOSD-Project/issues"
+  },
+  "homepage": "https://github.com/ellie7000/POOSD-Project#readme",
+  "devDependencies": {
+    "@types/node": "^13.5.2",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
