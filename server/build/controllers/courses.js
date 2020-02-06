@@ -35,36 +35,37 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var mongodb = require("mongodb");
-var Database;
-(function (Database) {
-    function makeId(id) {
-        return new mongodb.ObjectID(id);
-    }
-    Database.makeId = makeId;
-    function connectToMongo() {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                if (Database.db)
-                    return [2 /*return*/, Promise.resolve(Database.db)];
-                return [2 /*return*/, mongodb.connect('mongodb://localhost:27017', {
-                        bufferMaxEntries: 0,
-                        reconnectTries: 5000,
-                        useNewUrlParser: true,
-                        useUnifiedTopology: true
-                    }).then(function (c) {
-                        Database.client = c;
-                        Database.db = Database.client.db("POOSD");
-                        Database.classes = Database.db.collection("Classes");
-                        return Database.db;
-                    })];
-            });
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var db_1 = __importDefault(require("../db"));
+var Courses;
+(function (Courses) {
+    var _this = this;
+    Courses.getAllCourses = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    res.type("json");
+                    db_1.default.classes.find({}).toArray().then(function (result) { return res.send(JSON.stringify(result)); });
+                    return [2 /*return*/];
+            }
         });
-    }
-    Database.connectToMongo = connectToMongo;
-    function disconnectFromMongo() {
-        Database.client.close();
-    }
-    Database.disconnectFromMongo = disconnectFromMongo;
-})(Database || (Database = {}));
-module.exports = Database;
+    }); };
+    Courses.getCourse = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    res.type("json");
+                    db_1.default.classes.findOne({ _id: db_1.default.makeId(req.params.id) }).then(function (result) { return res.send(JSON.stringify(result)); });
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+})(Courses = exports.Courses || (exports.Courses = {}));
+;

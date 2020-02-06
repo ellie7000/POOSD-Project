@@ -1,4 +1,4 @@
-import mongodb = require('mongodb')
+import mongodb = require('mongodb');
 
 namespace Database {
 
@@ -10,10 +10,14 @@ namespace Database {
         _id: string | mongodb.ObjectID,
         name: string
     }
-
+    
+    export function makeId(id: string) {
+        return new mongodb.ObjectID(id);
+    }
+    
     export var client: mongodb.MongoClient;
     export var db: mongodb.Db;
-    export var classes: mongodb.Collection<Class>
+    export var classes: mongodb.Collection<Class>;
 
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);

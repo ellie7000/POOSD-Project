@@ -39,22 +39,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Using ES6 imports
 var express_1 = __importDefault(require("express"));
-var db_1 = __importDefault(require("./db"));
+var courses_1 = require("./controllers/courses");
 var app = express_1.default();
 var port = 8080;
-// define a route handler for the default home page
+// route for the default home page
 app.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
-            case 1:
-                _a.sent();
-                db_1.default.classes.find({}).toArray().then(function (stuff) { return res.send(JSON.stringify(stuff)); });
-                return [2 /*return*/];
-        }
+        res.send("This is our POOSD API");
+        return [2 /*return*/];
     });
 }); });
+// route to all courses
+app.get("/courses", courses_1.Courses.getAllCourses);
+// route to a course
+app.get("/course/:id", courses_1.Courses.getCourse);
 // start the Express server
 app.listen(port, function () {
     console.log("server started at http://localhost:" + port);
