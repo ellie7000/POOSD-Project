@@ -56,6 +56,7 @@ var Database;
                         Database.client = c;
                         Database.db = Database.client.db("POOSD");
                         Database.classes = Database.db.collection("Classes");
+                        Database.majors = Database.db.collection("Majors");
                         return Database.db;
                     })];
             });

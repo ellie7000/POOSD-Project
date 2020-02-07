@@ -1,6 +1,6 @@
 import Database from '../db';
 
-export namespace Courses {
+export module Courses {
     export const getAllCourses = async (req: any, res: any) => {
         await Database.connectToMongo();
         res.type("json");

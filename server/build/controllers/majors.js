@@ -39,28 +39,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Using ES6 imports
-var express_1 = __importDefault(require("express"));
-var courses_1 = require("./controllers/courses");
-var majors_1 = require("./controllers/majors");
-var app = express_1.default();
-var port = 8080;
-// route for the default home page
-app.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        res.send("This is our POOSD API");
-        return [2 /*return*/];
-    });
-}); });
-// route to all courses
-app.get("/courses", courses_1.Courses.getAllCourses);
-// route to a course
-app.get("/course/:id", courses_1.Courses.getCourse);
-// route to all majors
-app.get("/majors", majors_1.Majors.getAllMajors);
-// route to a major
-app.get("/major/:id", majors_1.Majors.getMajor);
-// start the Express server
-app.listen(port, function () {
-    console.log("server started at http://localhost:" + port);
-});
+var db_1 = __importDefault(require("../db"));
+var Majors;
+(function (Majors) {
+    var _this = this;
+    Majors.getAllMajors = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    res.type("json");
+                    db_1.default.majors.find({}).toArray().then(function (result) { return res.send(JSON.stringify(result)); });
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+    Majors.getMajor = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    res.type("json");
+                    db_1.default.majors.findOne({ _id: db_1.default.makeId(req.params.id) }).then(function (result) { return res.send(JSON.stringify(result)); });
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+})(Majors = exports.Majors || (exports.Majors = {}));
+;
