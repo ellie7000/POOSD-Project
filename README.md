@@ -26,3 +26,5 @@ For UCF Students who Want to make a graduation plan, the KnightsPath Course Plan
 - [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=618888712)
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
 - [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
+- [System Architecture](https://docs.google.com/document/d/1BP6NqMDTFTz7nSZNcVeMVWVw-UNSI12cDEaRM968ukU/edit?usp=sharing)
+- [Class Diagrams](https://docs.google.com/document/d/1CgTCS9oM7ig7FzeU1Ik9VXwyVaJrn3U5cGQ3f7_Pe1Q/edit?usp=sharing)
