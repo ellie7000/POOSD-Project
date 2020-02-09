@@ -28,4 +28,5 @@ For UCF Students who Want to make a graduation plan, the KnightsPath Course Plan
 - [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
 - [System Architecture](https://docs.google.com/document/d/1BP6NqMDTFTz7nSZNcVeMVWVw-UNSI12cDEaRM968ukU/edit?usp=sharing)
 - [Class Diagrams](https://docs.google.com/document/d/1CgTCS9oM7ig7FzeU1Ik9VXwyVaJrn3U5cGQ3f7_Pe1Q/edit?usp=sharing)
-- .[Demonstration].(https://youtu.be/w-adC8l6Ioc)
+- [Demonstration](https://youtu.be/w-adC8l6Ioc)
+
