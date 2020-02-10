@@ -23,7 +23,7 @@ namespace Database {
     export var client: mongodb.MongoClient;
     export var db: mongodb.Db;
     export var classes: mongodb.Collection<Class>;
-    export var majors: mongodb.Collection<Class>;
+    export var majors: mongodb.Collection<Major>;
 
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);
