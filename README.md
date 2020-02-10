@@ -31,7 +31,7 @@ For UCF Students who Want to make a graduation plan, the KnightsPath Course Plan
 - [Class Diagrams](https://docs.google.com/document/d/1CgTCS9oM7ig7FzeU1Ik9VXwyVaJrn3U5cGQ3f7_Pe1Q/edit?usp=sharing)
 - [Demonstration](https://youtu.be/w-adC8l6Ioc)
 
-## Sprint 2
+## Sprint 3
 
 - [Product Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=0)
 - [Sprint Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=605195646)
