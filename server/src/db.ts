@@ -15,6 +15,13 @@ namespace Database {
         _id: string | mongodb.ObjectID,
         name: string
     }
+
+    export interface User {
+        _id: string | mongodb.ObjectID,
+        name: string,
+        email: string,
+        passwordHash: string,
+    }
     
     export function makeId(id: string) {
         return new mongodb.ObjectID(id);
@@ -24,6 +31,7 @@ namespace Database {
     export var db: mongodb.Db;
     export var classes: mongodb.Collection<Class>;
     export var majors: mongodb.Collection<Major>;
+    export var users: mongodb.Collection<User>;
 
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);
@@ -37,6 +45,7 @@ namespace Database {
             db = client.db("POOSD");
             classes = db.collection("Classes");
             majors = db.collection("Majors");
+            users = db.collection("Users");
             return db;
         })
     }

@@ -1,10 +1,13 @@
 // Using ES6 imports
 import Express from 'express';
-import { Courses } from './controllers/courses'
-import { Majors } from './controllers/majors'
+import Session from 'express-session';
+import { Courses } from './controllers/courses';
+import { Majors } from './controllers/majors';
 
 const app = Express();
 const port = 8080;
+
+app.use(Session({ secret: 'ssshhhhh' }));
 
 // route for the default home page
 app.get("/", async (req: any, res: any) => {
