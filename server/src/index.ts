@@ -27,6 +27,9 @@ app.post("/login", User.login);
 // route to signup
 app.post("/signup", User.createUser);
 
+// route to logout
+app.post("/logout", User.logout);
+
 // route to all courses
 app.get("/courses", Courses.getAllCourses);
 

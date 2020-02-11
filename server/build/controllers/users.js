@@ -126,4 +126,18 @@ var User;
             }
         });
     }); };
+    User.logout = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (req.session) {
+                delete req.session.userId;
+                res.status(200).send({ message: "Successful logout" });
+                return [2 /*return*/, res.end()];
+            }
+            else {
+                res.status(500).send({ message: "Unsuccessful logout" });
+                return [2 /*return*/, res.end()];
+            }
+            return [2 /*return*/];
+        });
+    }); };
 })(User = exports.User || (exports.User = {}));

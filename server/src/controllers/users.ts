@@ -23,6 +23,7 @@ export module User {
             if (req.session) req.session.userId = result._id;
             res.status(200).send({ message: "Successful login" });
             return res.end();
+
         }).catch(console.error)
     }
 
@@ -66,14 +67,27 @@ export module User {
                                     }).then(success => {
                                         if (success) {
                                             if (req.session) req.session.userId = success.insertedId;
-                                            res.status(200).send({ message: "Successful create user"})
+                                            res.status(200).send({ message: "Successful create user"});
                                             return res.end();
                                         }
                                         else {
-                                            res.status(500).send({ message: "Unsuccessful create user" })
+                                            res.status(500).send({ message: "Unsuccessful create user" });
                                             return res.end();
                                         }
                                     })
         }).catch(console.error);
     }
+
+    export const logout = async (req: Express.Request, res: Express.Response) => {
+        if (req.session) {
+            delete req.session.userId;
+            res.status(200).send({ message: "Successful logout" });
+            return res.end();
+        }
+        else {
+            res.status(500).send({ message: "Unsuccessful logout" });
+            return res.end();
+        }
+    }
+
 }

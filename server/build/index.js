@@ -64,6 +64,8 @@ app.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, func
 app.post("/login", users_1.User.login);
 // route to signup
 app.post("/signup", users_1.User.createUser);
+// route to logout
+app.post("/logout", users_1.User.logout);
 // route to all courses
 app.get("/courses", courses_1.Courses.getAllCourses);
 // route to a course
