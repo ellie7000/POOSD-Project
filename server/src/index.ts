@@ -16,30 +16,23 @@ app.use(Session({
 
 app.use(Express.json());
 
-// route for the default home page
 app.get("/", async (req: any, res: any) => {
     res.send("This is our POOSD API");
 });
 
-// route to login
+// Routes
 app.post("/login", User.login);
 
-// route to signup
 app.post("/signup", User.createUser);
 
-// route to logout
 app.post("/logout", User.logout);
 
-// route to all courses
 app.get("/courses", Courses.getAllCourses);
 
-// route to a course
 app.get("/course/:id", Courses.getCourse);
 
-// route to all majors
 app.get("/majors", Majors.getAllMajors);
 
-// route to a major
 app.get("/major/:id", Majors.getMajor);
 
 // start the Express server
