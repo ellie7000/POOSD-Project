@@ -62,6 +62,8 @@ app.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, func
 }); });
 // route to login
 app.post("/login", users_1.User.login);
+// route to signup
+app.post("/signup", users_1.User.createUser);
 // route to all courses
 app.get("/courses", courses_1.Courses.getAllCourses);
 // route to a course

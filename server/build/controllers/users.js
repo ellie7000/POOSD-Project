@@ -40,6 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var db_1 = __importDefault(require("../db"));
+var bcrypt_1 = __importDefault(require("bcrypt"));
 var User;
 (function (User) {
     var _this = this;
@@ -50,7 +51,7 @@ var User;
                 case 1:
                     _a.sent();
                     if (!req.body.username || !req.body.password) {
-                        res.status(403).send("Missing username or password");
+                        res.status(403).send({ message: "Missing username or password" });
                         return [2 /*return*/, res.end()];
                     }
                     db_1.default.users.findOne({ username: req.body.username }).then(function (result) {
@@ -58,15 +59,71 @@ var User;
                             res.status(403).send({ message: "User not found" });
                             return res.end();
                         }
-                        if (req.session) {
-                            req.session.userId = result._id;
+                        if (!bcrypt_1.default.compareSync(req.body.password, result.passwordHash)) {
+                            res.status(403).send({ message: "Incorrect password" });
+                            return res.end();
                         }
-                        res.send(200).send("Successful login");
-                        res.end();
+                        if (req.session)
+                            req.session.userId = result._id;
+                        res.status(200).send({ message: "Successful login" });
+                        return res.end();
+                    }).catch(console.error);
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+    User.createUser = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    if (!req.body.username || !req.body.password) {
+                        res.status(403).send({ message: "Missing username or password" });
+                        return [2 /*return*/, res.end()];
+                    }
+                    db_1.default.users.findOne({ username: req.body.username }).then(function (result) {
+                        // Validate
+                        if (result) {
+                            res.status(403).send({ message: "This username already exists" });
+                            return res.end();
+                        }
+                        if (!req.body.name) {
+                            res.status(403).send({ message: "Missing a name" });
+                            return res.end();
+                        }
+                        if (!req.body.username) {
+                            res.status(403).send({ message: "Missing a username" });
+                            return res.end();
+                        }
+                        if (!req.body.email) {
+                            res.status(403).send({ message: "Missing an email" });
+                            return res.end();
+                        }
+                        if (!req.body.password) {
+                            res.status(403).send({ message: "Missing a password" });
+                            return res.end();
+                        }
+                        var passwordHash = bcrypt_1.default.hashSync(req.body.password, 10);
+                        db_1.default.users.insertOne({ name: req.body.name,
+                            username: req.body.username,
+                            email: req.body.email,
+                            passwordHash: passwordHash
+                        }).then(function (success) {
+                            if (success) {
+                                if (req.session)
+                                    req.session.userId = success.insertedId;
+                                res.status(200).send({ message: "Successful create user" });
+                                return res.end();
+                            }
+                            else {
+                                res.status(500).send({ message: "Unsuccessful create user" });
+                                return res.end();
+                            }
+                        });
                     }).catch(console.error);
                     return [2 /*return*/];
             }
         });
     }); };
 })(User = exports.User || (exports.User = {}));
-;

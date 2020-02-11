@@ -24,6 +24,9 @@ app.get("/", async (req: any, res: any) => {
 // route to login
 app.post("/login", User.login);
 
+// route to signup
+app.post("/signup", User.createUser);
+
 // route to all courses
 app.get("/courses", Courses.getAllCourses);
 
