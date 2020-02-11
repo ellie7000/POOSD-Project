@@ -39,38 +39,34 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Using ES6 imports
-var express_1 = __importDefault(require("express"));
-var express_session_1 = __importDefault(require("express-session"));
-var courses_1 = require("./controllers/courses");
-var majors_1 = require("./controllers/majors");
-var users_1 = require("./controllers/users");
-var app = express_1.default();
-var port = 8080;
-app.use(express_session_1.default({
-    secret: 'ssshhhhh',
-    resave: false,
-    saveUninitialized: true
-}));
-app.use(express_1.default.json());
-// route for the default home page
-app.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        res.send("This is our POOSD API");
-        return [2 /*return*/];
-    });
-}); });
-// route to login
-app.post("/login", users_1.User.login);
-// route to all courses
-app.get("/courses", courses_1.Courses.getAllCourses);
-// route to a course
-app.get("/course/:id", courses_1.Courses.getCourse);
-// route to all majors
-app.get("/majors", majors_1.Majors.getAllMajors);
-// route to a major
-app.get("/major/:id", majors_1.Majors.getMajor);
-// start the Express server
-app.listen(port, function () {
-    console.log("server started at http://localhost:" + port);
-});
+var db_1 = __importDefault(require("../db"));
+var User;
+(function (User) {
+    var _this = this;
+    User.login = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    if (!req.body.username || !req.body.password) {
+                        res.status(403).send("Missing username or password");
+                        return [2 /*return*/, res.end()];
+                    }
+                    db_1.default.users.findOne({ username: req.body.username }).then(function (result) {
+                        if (!result) {
+                            res.status(403).send({ message: "User not found" });
+                            return res.end();
+                        }
+                        if (req.session) {
+                            req.session.userId = result._id;
+                        }
+                        res.send(200).send("Successful login");
+                        res.end();
+                    }).catch(console.error);
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+})(User = exports.User || (exports.User = {}));
+;

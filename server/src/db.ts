@@ -19,6 +19,7 @@ namespace Database {
     export interface User {
         _id: string | mongodb.ObjectID,
         name: string,
+        username: string,
         email: string,
         passwordHash: string,
     }
