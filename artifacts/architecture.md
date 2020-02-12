@@ -2,12 +2,14 @@
 ![High Level Architecture](pictures/KnightsPath_High_level_architecture_design.jpg "High Level Architecture")
 
 # Major Classes
+![Class Diagram](pictures/KnightsPath_Class_Diagram.jpg "Class Diagram")
 
 # Data Design
 
 # Business Rules
 
 # User Interface Design
+![User Interface](pictures/UIDiagram.jpg "User Interface Diagram")
 
 # Resource Management
 
