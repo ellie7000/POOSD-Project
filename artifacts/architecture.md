@@ -1,5 +1,5 @@
 # Program Organization
-![High Level Architecture](pictures/KnightsPath_High_level_architecture_design.pdf "High Level Architecture")
+![High Level Architecture](pictures/KnightsPath_High_level_architecture_design.jpg "High Level Architecture")
 
 # Major Classes
 
