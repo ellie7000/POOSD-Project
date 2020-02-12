@@ -5,7 +5,7 @@
 ![Class Diagram](pictures/KnightsPath_Class_Diagram.jpg "Class Diagram")
 
 # Data Design
-![ERD](pictures/EDR.jpg "ERD Diagram")
+![ERD](pictures/ERD.jpg "ERD Diagram")
 
 # Business Rules
 
