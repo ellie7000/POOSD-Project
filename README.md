@@ -1,6 +1,6 @@
 # Product Vision
 
-For UCF Students who Want to make a graduation plan, the KnightsPath Course Planner is a website that recommends you customized courses based on your career interests and generates a long term plan. Unlike MyUCF’s MyKnight Audit which is inconvenient and hard to visualize your progress, Our product is more user friendly, interactive, and visually appealing.
+The KnightsPath Course Planner is a website for UCF students who want to create a customized graduation plan. On our website you will be able to track your progress, get customized class reccomendations based on your career interests, access a GPA calculator, and generate a long term graduation plan. Unlike our competitor, MyUCF’s MyKnight Audit, which is inconvenient and hard to visualize your progress, our product is more user friendly, interactive, and visually appealing.
 
 ## Team Members
 
