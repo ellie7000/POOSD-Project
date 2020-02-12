@@ -27,9 +27,9 @@ The KnightsPath Course Planner is a website for UCF students who want to create 
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
 - [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
 - Degign Documents
-  - [System Architecture](https://docs.google.com/document/d/1BP6NqMDTFTz7nSZNcVeMVWVw-UNSI12cDEaRM968ukU/edit?usp=sharing)
-  - [UI Diagram](https://docs.google.com/document/d/1v8jSRngvyPUkBUv1jy66tlP7XBNQ0XHzoqUR5EnZORo/edit?usp=sharing)
-  - [Class Diagrams](https://docs.google.com/document/d/1CgTCS9oM7ig7FzeU1Ik9VXwyVaJrn3U5cGQ3f7_Pe1Q/edit?usp=sharing)
+  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
+  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
+  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
 - [Demonstration](https://youtu.be/w-adC8l6Ioc)
 
 ## Sprint 3
@@ -41,9 +41,9 @@ The KnightsPath Course Planner is a website for UCF students who want to create 
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
 - [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
 - Design Documents
-  - [System Architecture](https://docs.google.com/document/d/1BP6NqMDTFTz7nSZNcVeMVWVw-UNSI12cDEaRM968ukU/edit?usp=sharing)
-  - [UI Diagram](https://docs.google.com/document/d/1v8jSRngvyPUkBUv1jy66tlP7XBNQ0XHzoqUR5EnZORo/edit?usp=sharing)
-  - [Class Diagrams](https://docs.google.com/document/d/1CgTCS9oM7ig7FzeU1Ik9VXwyVaJrn3U5cGQ3f7_Pe1Q/edit?usp=sharing)
+  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
+  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
+  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
 - [Demonstration]
 - [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
 - [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
