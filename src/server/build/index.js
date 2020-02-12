@@ -53,26 +53,19 @@ app.use(express_session_1.default({
     saveUninitialized: true
 }));
 app.use(express_1.default.json());
-// route for the default home page
 app.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         res.send("This is our POOSD API");
         return [2 /*return*/];
     });
 }); });
-// route to login
+// Routes
 app.post("/login", users_1.User.login);
-// route to signup
 app.post("/signup", users_1.User.createUser);
-// route to logout
 app.post("/logout", users_1.User.logout);
-// route to all courses
 app.get("/courses", courses_1.Courses.getAllCourses);
-// route to a course
 app.get("/course/:id", courses_1.Courses.getCourse);
-// route to all majors
 app.get("/majors", majors_1.Majors.getAllMajors);
-// route to a major
 app.get("/major/:id", majors_1.Majors.getMajor);
 // start the Express server
 app.listen(port, function () {
