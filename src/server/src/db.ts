@@ -36,14 +36,14 @@ namespace Database {
 
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);
-        return mongodb.connect('mongodb://localhost:27017', {
+        return mongodb.connect('mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority', {
             bufferMaxEntries: 0,
             reconnectTries: 5000,
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(c => {
             client = c;
-            db = client.db("POOSD");
+            db = client.db("KnightsPath");
             classes = db.collection("Classes");
             majors = db.collection("Majors");
             users = db.collection("Users");
