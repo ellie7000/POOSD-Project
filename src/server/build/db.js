@@ -47,14 +47,14 @@ var Database;
             return __generator(this, function (_a) {
                 if (Database.db)
                     return [2 /*return*/, Promise.resolve(Database.db)];
-                return [2 /*return*/, mongodb.connect('mongodb://localhost:27017', {
+                return [2 /*return*/, mongodb.connect('mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority', {
                         bufferMaxEntries: 0,
                         reconnectTries: 5000,
                         useNewUrlParser: true,
                         useUnifiedTopology: true
                     }).then(function (c) {
                         Database.client = c;
-                        Database.db = Database.client.db("POOSD");
+                        Database.db = Database.client.db("KnightsPath");
                         Database.classes = Database.db.collection("Classes");
                         Database.majors = Database.db.collection("Majors");
                         Database.users = Database.db.collection("Users");
