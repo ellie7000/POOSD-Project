@@ -1,0 +1,4 @@
+{
+    "spec_dir": "../tests/server",
+    "spec_files": ["**/*majorTest.js"]
+ }
