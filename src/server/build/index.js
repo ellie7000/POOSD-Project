@@ -68,6 +68,7 @@ app.get("/course/:id", courses_1.Courses.getCourse);
 app.get("/majors", majors_1.Majors.getAllMajors);
 app.get("/major/:id", majors_1.Majors.getMajor);
 // start the Express server
-app.listen(port, function () {
+var server = app.listen(port, function () {
     console.log("server started at http://localhost:" + port);
 });
+module.exports = server;
