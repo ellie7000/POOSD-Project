@@ -24,14 +24,13 @@ describe("Server", () => {
             {
                 json: true,
                 body: {
-                    "username": "teststudent02",
+                    "username": "teststudent",
                     "password": "test",
                     "name": "Student",
                     "email": "teststudent@knights.ucf.edu"
                 }
             },
             (error, response, body) => {
-                console.log(error);
                 data.body = body;
                 done();
             });
@@ -40,5 +39,46 @@ describe("Server", () => {
         it('createUser', function () {
             expect(data.body).toEqual({ message: "Successful create user" });
         });
+        describe('Test User Login', function () {
+            var data = {};
+            // Before each individual test, issue an HTTP request and save the response
+            beforeAll((done) => {
+                Request.post("http://localhost:8080/login",
+                    {
+                        json: true,
+                        body: {
+                            "username": "teststudent",
+                            "password": "test",
+                        }
+                    },
+                    (error, response, body) => {
+                        data.body = body;
+                        done();
+                    });
+            });
+
+            it('userLogin', function () {
+                expect(data.body).toEqual({ message: "Successful login" });
+            });
+            describe('Test User Logout', function () {
+                var data = {};
+                // Before each individual test, issue an HTTP request and save the response
+                beforeAll((done) => {
+                    Request.post("http://localhost:8080/logout",
+                        {
+                            json:true
+                        },
+                        (error, response, body) => {
+                            data.body = body;
+                            done();
+                        });
+                });
+
+                it('userLogout', function () {
+                    expect(data.body).toEqual({ message: "Successful logout" });
+                });
+            });
+        });
     });
+   
 });
