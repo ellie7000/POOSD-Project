@@ -35,6 +35,8 @@ export module Courses {
 
             Database.courses.insertOne({
                 name: req.body.name,
+                courseCode: req.body.courseCode,
+                credits: req.body.credits
             }).then(success => {
                 if (success) {
                     if (req.session) req.session.userId = success.insertedId;

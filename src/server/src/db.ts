@@ -32,7 +32,7 @@ namespace Database {
     
     export var client: mongodb.MongoClient;
     export var db: mongodb.Db;
-    export var courses: mongodb.Collection<Class>;
+    export var courses: mongodb.Collection<Course>;
     export var majors: mongodb.Collection<Major>;
     export var users: mongodb.Collection<User>;
 
