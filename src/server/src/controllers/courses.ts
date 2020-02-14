@@ -39,7 +39,6 @@ export module Courses {
                 credits: req.body.credits
             }).then(success => {
                 if (success) {
-                    if (req.session) req.session.userId = success.insertedId;
                     res.status(200).send({ message: "Successful create class" });
                     return res.end();
                 }

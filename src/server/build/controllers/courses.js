@@ -89,6 +89,8 @@ var Courses;
                         }
                         db_1.default.courses.insertOne({
                             name: req.body.name,
+                            courseCode: req.body.courseCode,
+                            credits: req.body.credits
                         }).then(function (success) {
                             if (success) {
                                 if (req.session)

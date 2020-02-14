@@ -37,7 +37,6 @@ export module Majors {
                 name: req.body.name,
             }).then(success => {
                 if (success) {
-                    if (req.session) req.session.userId = success.insertedId;
                     res.status(200).send({ message: "Successful create major" });
                     return res.end();
                 }
