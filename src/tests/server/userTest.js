@@ -20,23 +20,25 @@ describe("Server", () => {
         var data = {};
         // Before each individual test, issue an HTTP request and save the response
         beforeAll((done) => {
-            Request.post("http://localhost:8080/signup", 
+            Request.post("http://localhost:8080/signup",
             {
+                json: true,
                 body: {
-                    "username": "teststudent01",
+                    "username": "teststudent02",
                     "password": "test",
                     "name": "Student",
                     "email": "teststudent@knights.ucf.edu"
                 }
             },
             (error, response, body) => {
+                console.log(error);
                 data.body = body;
                 done();
             });
         });
 
-        it('getAllMajors', function () {
-            expect(data.body).toBe("[{\"_id\":\"5e3c4ae01c9d44000050e1c7\",\"name\":\"Computer Science\"},{\"_id\":\"5e44098e1c9d440000be3fdd\",\"name\":\"Computer Engineering\"}]");
+        it('createUser', function () {
+            expect(data.body).toEqual({ message: "Successful create user" });
         });
     });
 });

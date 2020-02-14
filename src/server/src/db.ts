@@ -37,18 +37,17 @@ namespace Database {
     export var TESTMODE = false;
 
     const DB_URL = 'mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority';
-    const TEST_LOCAL_DB_URL = 'mongodb://localhost:27017';
 
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);
-        return mongodb.connect(TESTMODE ? TEST_LOCAL_DB_URL : DB_URL, {
+        return mongodb.connect(DB_URL, {
             bufferMaxEntries: 0,
             reconnectTries: 5000,
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(c => {
             client = c;
-            db = client.db("KnightsPath");
+            db = client.db(TESTMODE ? "KnightsPathTest" : "KnightsPath");
             classes = db.collection("Classes");
             majors = db.collection("Majors");
             users = db.collection("Users");

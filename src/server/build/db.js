@@ -42,19 +42,21 @@ var Database;
         return new mongodb.ObjectID(id);
     }
     Database.makeId = makeId;
+    Database.TESTMODE = false;
+    var DB_URL = 'mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority';
     function connectToMongo() {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 if (Database.db)
                     return [2 /*return*/, Promise.resolve(Database.db)];
-                return [2 /*return*/, mongodb.connect('mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority', {
+                return [2 /*return*/, mongodb.connect(DB_URL, {
                         bufferMaxEntries: 0,
                         reconnectTries: 5000,
                         useNewUrlParser: true,
                         useUnifiedTopology: true
                     }).then(function (c) {
                         Database.client = c;
-                        Database.db = Database.client.db("KnightsPath");
+                        Database.db = Database.client.db(Database.TESTMODE ? "KnightsPathTest" : "KnightsPath");
                         Database.classes = Database.db.collection("Classes");
                         Database.majors = Database.db.collection("Majors");
                         Database.users = Database.db.collection("Users");
