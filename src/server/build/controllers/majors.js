@@ -67,5 +67,44 @@ var Majors;
             }
         });
     }); };
+    Majors.createMajor = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    if (!req.body.name) {
+                        res.status(403).send({ message: "Missing name" });
+                        return [2 /*return*/, res.end()];
+                    }
+                    db_1.default.majors.findOne({ name: req.body.name }).then(function (result) {
+                        // Validate
+                        if (result) {
+                            res.status(403).send({ message: "This course name already exists" });
+                            return res.end();
+                        }
+                        if (!req.body.name) {
+                            res.status(403).send({ message: "Missing a name" });
+                            return res.end();
+                        }
+                        db_1.default.majors.insertOne({
+                            name: req.body.name,
+                        }).then(function (success) {
+                            if (success) {
+                                if (req.session)
+                                    req.session.userId = success.insertedId;
+                                res.status(200).send({ message: "Successful create major" });
+                                return res.end();
+                            }
+                            else {
+                                res.status(500).send({ message: "Unsuccessful create major" });
+                                return res.end();
+                            }
+                        });
+                    }).catch(console.error);
+                    return [2 /*return*/];
+            }
+        });
+    }); };
 })(Majors = exports.Majors || (exports.Majors = {}));
 ;

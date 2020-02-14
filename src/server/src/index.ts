@@ -33,6 +33,8 @@ app.get("/course/:id", Courses.getCourse);
 
 app.get("/majors", Majors.getAllMajors);
 
+app.post("/major", Majors.createMajor);
+
 app.get("/major/:id", Majors.getMajor);
 
 // start the Express server

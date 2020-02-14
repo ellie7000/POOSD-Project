@@ -66,6 +66,7 @@ app.post("/logout", users_1.User.logout);
 app.get("/courses", courses_1.Courses.getAllCourses);
 app.get("/course/:id", courses_1.Courses.getCourse);
 app.get("/majors", majors_1.Majors.getAllMajors);
+app.post("/major", majors_1.Majors.createMajor);
 app.get("/major/:id", majors_1.Majors.getMajor);
 // start the Express server
 var server = app.listen(port, function () {
