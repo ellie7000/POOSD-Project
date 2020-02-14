@@ -34,9 +34,14 @@ namespace Database {
     export var majors: mongodb.Collection<Major>;
     export var users: mongodb.Collection<User>;
 
+    export var TESTMODE = false;
+
+    const DB_URL = 'mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority';
+    const TEST_LOCAL_DB_URL = 'mongodb://localhost:27017';
+
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);
-        return mongodb.connect('mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority', {
+        return mongodb.connect(TESTMODE ? TEST_LOCAL_DB_URL : DB_URL, {
             bufferMaxEntries: 0,
             reconnectTries: 5000,
             useNewUrlParser: true,
