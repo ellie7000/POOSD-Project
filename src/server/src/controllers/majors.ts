@@ -25,7 +25,7 @@ export module Majors {
         Database.majors.findOne({ name: req.body.name }).then((result) => {
             // Validate
             if (result) {
-                res.status(403).send({ message: "This course name already exists" });
+                res.status(403).send({ message: "This major name already exists" });
                 return res.end();
             }
             if (!req.body.name) {

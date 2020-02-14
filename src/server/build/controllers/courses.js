@@ -50,7 +50,7 @@ var Courses;
                 case 1:
                     _a.sent();
                     res.type("json");
-                    db_1.default.classes.find({}).toArray().then(function (result) { return res.send(JSON.stringify(result)); });
+                    db_1.default.courses.find({}).toArray().then(function (result) { return res.send(JSON.stringify(result)); });
                     return [2 /*return*/];
             }
         });
@@ -62,7 +62,46 @@ var Courses;
                 case 1:
                     _a.sent();
                     res.type("json");
-                    db_1.default.classes.findOne({ _id: db_1.default.makeId(req.params.id) }).then(function (result) { return res.send(JSON.stringify(result)); });
+                    db_1.default.courses.findOne({ _id: db_1.default.makeId(req.params.id) }).then(function (result) { return res.send(JSON.stringify(result)); });
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+    Courses.createCourse = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, db_1.default.connectToMongo()];
+                case 1:
+                    _a.sent();
+                    if (!req.body.name) {
+                        res.status(403).send({ message: "Missing name" });
+                        return [2 /*return*/, res.end()];
+                    }
+                    db_1.default.courses.findOne({ name: req.body.name }).then(function (result) {
+                        // Validate
+                        if (result) {
+                            res.status(403).send({ message: "This class name already exists" });
+                            return res.end();
+                        }
+                        if (!req.body.name) {
+                            res.status(403).send({ message: "Missing a name" });
+                            return res.end();
+                        }
+                        db_1.default.courses.insertOne({
+                            name: req.body.name,
+                        }).then(function (success) {
+                            if (success) {
+                                if (req.session)
+                                    req.session.userId = success.insertedId;
+                                res.status(200).send({ message: "Successful create class" });
+                                return res.end();
+                            }
+                            else {
+                                res.status(500).send({ message: "Unsuccessful create class" });
+                                return res.end();
+                            }
+                        });
+                    }).catch(console.error);
                     return [2 /*return*/];
             }
         });

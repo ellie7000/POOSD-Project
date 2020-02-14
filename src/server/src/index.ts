@@ -29,6 +29,8 @@ app.post("/logout", User.logout);
 
 app.get("/courses", Courses.getAllCourses);
 
+app.post("/course", Courses.createCourse);
+
 app.get("/course/:id", Courses.getCourse);
 
 app.get("/majors", Majors.getAllMajors);

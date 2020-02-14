@@ -57,7 +57,7 @@ var Database;
                     }).then(function (c) {
                         Database.client = c;
                         Database.db = Database.client.db(Database.TESTMODE ? "KnightsPathTest" : "KnightsPath");
-                        Database.classes = Database.db.collection("Classes");
+                        Database.courses = Database.db.collection("Courses");
                         Database.majors = Database.db.collection("Majors");
                         Database.users = Database.db.collection("Users");
                         return Database.db;

@@ -64,6 +64,7 @@ app.post("/login", users_1.User.login);
 app.post("/signup", users_1.User.createUser);
 app.post("/logout", users_1.User.logout);
 app.get("/courses", courses_1.Courses.getAllCourses);
+app.post("/course", courses_1.Courses.createCourse);
 app.get("/course/:id", courses_1.Courses.getCourse);
 app.get("/majors", majors_1.Majors.getAllMajors);
 app.post("/major", majors_1.Majors.createMajor);

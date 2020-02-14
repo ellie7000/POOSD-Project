@@ -6,9 +6,11 @@ namespace Database {
         _id: string | mongodb.ObjectID
     }
 
-    export interface Class {
+    export interface Course {
         _id: string | mongodb.ObjectID,
         name: string
+        courseCode: string;
+        credits: number;
     }
 
     export interface Major {
@@ -30,7 +32,7 @@ namespace Database {
     
     export var client: mongodb.MongoClient;
     export var db: mongodb.Db;
-    export var classes: mongodb.Collection<Class>;
+    export var courses: mongodb.Collection<Class>;
     export var majors: mongodb.Collection<Major>;
     export var users: mongodb.Collection<User>;
 
@@ -48,7 +50,7 @@ namespace Database {
         }).then(c => {
             client = c;
             db = client.db(TESTMODE ? "KnightsPathTest" : "KnightsPath");
-            classes = db.collection("Classes");
+            courses = db.collection("Courses");
             majors = db.collection("Majors");
             users = db.collection("Users");
             return db;
