@@ -50,7 +50,7 @@ The KnightsPath Course Planner is a website for UCF students who want to create 
 
 ## Sprint 4
 
-- [Responsibilities]
+- [Responsibilities](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=249871715)
 - [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
 - [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
 - [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1288520732)
