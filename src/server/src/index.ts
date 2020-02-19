@@ -39,6 +39,8 @@ app.post("/major", Majors.createMajor);
 
 app.get("/major/:id", Majors.getMajor);
 
+app.delete("/major/:id", Majors.deleteMajor);
+
 // start the Express server
 let server = app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
