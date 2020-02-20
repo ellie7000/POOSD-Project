@@ -32,13 +32,18 @@ TODO: Abhishek
 TODO: Abhishek
 
 # Input/Output
-TODO: Luke
+The input for this program will use a look-ahead reading scheme.  The input will also be event driven with the user interacting with the system through the website front-end.  Input devices will most likely be a keyboard and mouse for entering data and navigating the site, although a touch display may also be used if the site is accessed from a mobile device.  
+
+The output of this program will also be through the website front-end, with information being rendered and displayed to the user through a screen.  For example, when suggesting courses to the user based on their major, the courses will be sent from the backend and rendered to the screen by the front end.
+I/O errors will be handled by the backend, as the backend will be accessing the database and will be the first to know if an error was made in the input.  When errors are detected by the backend it will respond to the front end with the error which will be passed to the user.
 
 # Error Processing
-TODO: Luke
+The error processing for this system will take place in the backend of the website.  We will use an active detective approach with incoming input.  If input is not what we expect, we will anticipate common cases where a user might miss a field or type something wrong to give them helpful error messages so they can fix their mistake.  As shown in the diagram, if an error is detected in the backend, the error is propagated to the frontend to be displayed to the user while the database is not accessed.
+
+In all other error cases, each class is responsible for checking data coming in and keeping track of its own errors.  If an error is detected at any point, the current action will be halted and the error will be propagated to the user.  
 
 # Fault Tolerance
-TODO: Luke
+The fault tolerance of this system will be very high, as the user will only be navigate the site using built in buttons and sliders.  In the cases where input text is needed, the system will reject anything that is not formatted correctly so it will be very unlikely to encounter a scenario where the system would crash.  There should be very little opportunity for the user to make errors when using the system.
 
 # Architectural Feasibility
 TODO: Abhishek
