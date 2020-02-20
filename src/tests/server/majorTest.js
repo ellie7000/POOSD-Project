@@ -1,4 +1,5 @@
 import { Majors } from '../../server/src/controllers/majors';
+import { stringify } from 'querystring';
 let Request = require("request");
 
   describe("Server", () => {
@@ -14,20 +15,57 @@ let Request = require("request");
         // After each set of tests, close the server
         server.close();
     });
-    
-  describe('Test Get Major', function() {
-    var data = {};
-    // Before each individual test, issue an HTTP request and save the response
-    beforeAll((done) => {
-        Request.get("http://localhost:8080/majors", (error, response, body) => {
-            data.body = body;
-            done();
+
+    describe('Test Create Major', function () {
+      var data = {};
+      // Before each individual test, issue an HTTP request and save the response
+      beforeAll((done) => {
+        Request.post("http://localhost:8080/majors",
+        {
+          json: true,
+          body: {
+            "name": "Physics",
+          }
+        },
+        (error, response, body) => {
+          data.body = body;
+          done();
         });
+      });
+
+      it('createMajor', function () {
+        expect(data.body).toBe(""); // FILL OUT
+      });
     });
 
-    it('getAllMajors', function() {
-      expect(data.body).toBe("[{\"_id\":\"5e3c4ae01c9d44000050e1c7\",\"name\":\"Computer Science\"},{\"_id\":\"5e44098e1c9d440000be3fdd\",\"name\":\"Computer Engineering\"}]");
+    describe('Test Get A Major', function () {
+      var data = {};
+      // Before each individual test, issue an HTTP request and save the response
+      beforeAll((done) => {
+        Request.get("http://localhost:8080/majors" + id, (error, response, body) => {
+          data.body = body;
+          done();
+        });
+      });
+
+      it('getAllMajors', function () {
+        expect(data.body).toBe("");
+      });
     });
-  });
+    
+    describe('Test Get All Majors', function() {
+      var data = {};
+      // Before each individual test, issue an HTTP request and save the response
+      beforeAll((done) => {
+          Request.get("http://localhost:8080/majors", (error, response, body) => {
+              data.body = body;
+              done();
+          });
+      });
+
+      it('getAllMajors', function() {
+        expect(data.body).toBe("");
+      });
+    });
 
 });
