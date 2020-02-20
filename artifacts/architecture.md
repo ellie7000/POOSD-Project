@@ -38,6 +38,7 @@ The output of this program will also be through the website front-end, with info
 I/O errors will be handled by the backend, as the backend will be accessing the database and will be the first to know if an error was made in the input.  When errors are detected by the backend it will respond to the front end with the error which will be passed to the user.
 
 # Error Processing
+![Error Processing](pictures/Error_Processing.jpg "Error Processing Diagram")
 The error processing for this system will take place in the backend of the website.  We will use an active detective approach with incoming input.  If input is not what we expect, we will anticipate common cases where a user might miss a field or type something wrong to give them helpful error messages so they can fix their mistake.  As shown in the diagram, if an error is detected in the backend, the error is propagated to the frontend to be displayed to the user while the database is not accessed.
 
 In all other error cases, each class is responsible for checking data coming in and keeping track of its own errors.  If an error is detected at any point, the current action will be halted and the error will be propagated to the user.  
