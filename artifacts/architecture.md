@@ -8,29 +8,40 @@
 ![ERD](pictures/ERD.jpg "ERD Diagram")
 
 # Business Rules
+TODO: Abhishek
 
 # User Interface Design
 ![User Interface](pictures/UIDiagram.jpg "User Interface Diagram")
 
 # Resource Management
+TODO: Christa
 
 # Security
+TODO: Christa
 
 # Performance
+TODO: Christa
 
 # Scalability
+TODO: Christa
 
 # Interoperability
+TODO: Abhishek
 
 # Internationalization/Localization
+TODO: Abhishek
 
 # Input/Output
+TODO: Luke
 
 # Error Processing
+TODO: Luke
 
 # Fault Tolerance
+TODO: Luke
 
 # Architectural Feasibility
+TODO: Abhishek
 
 # Overengineering
 The robustness of a program is its ability to cope with errors during execution. Architecture often leans towards a more robust system that includes overengineering, but our application is focused on doing the simplest thing that works. In order to implement this we have broken up the functionality of our program into concise parts. This allows for each aspect to be tested easily, which leads to a more reliable program overall.
