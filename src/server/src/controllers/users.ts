@@ -92,20 +92,38 @@ export module User {
 
     export const putMajor = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
-        if (req.session) {
-            if (req.session.id) {
-                Database.users.update({ _id: req.session.id }, { majorId: req.body.major }).then((result) => {
+        if (req.session && req.session.userId) {
+            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $set: {majorId: req.body.majorId} })
+                .then((result) => {
                     if (result) {
-                        res.status(200).send({ message: "Successful update major" })
+                        res.status(200).send({ message: "Successful update major" });
                         return res.end();
                     }
                     else {
-                        res.status(500).send({ message: "Unsuccessful update major" })
+                        res.status(500).send({ message: "Unsuccessful update major" });
                         return res.end();
                     }
-                }).catch (console.error);
-            }
+            }).catch (console.error);
+        }
+        else {
+            res.status(403).send({ message: "No user logged in" });
+            return res.end();
         }
     }
+
+    export const getUser = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        res.type("json");
+        Database.users.findOne({ _id: Database.makeId(req.session?.userId) }).then((result) => {
+            if (result) {
+                res.status(200).send(JSON.stringify(result));
+                return res.end();
+            }
+            else {
+                res.status(500).send({ message: "User not found" });
+                return res.end();
+            }
+        }).catch(console.error);
+    };
 
 }
