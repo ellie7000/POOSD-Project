@@ -90,4 +90,22 @@ export module User {
         }
     }
 
+    export const putMajor = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        if (req.session) {
+            if (req.session.id) {
+                Database.users.update({ _id: req.session.id }, { majorId: req.body.major }).then((result) => {
+                    if (result) {
+                        res.status(200).send({ message: "Successful update major" })
+                        return res.end();
+                    }
+                    else {
+                        res.status(500).send({ message: "Unsuccessful update major" })
+                        return res.end();
+                    }
+                }).catch (console.error);
+            }
+        }
+    }
+
 }
