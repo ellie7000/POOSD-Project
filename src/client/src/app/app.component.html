@@ -1,66 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<title> Knights Path </title>
-	<link rel="stylesheet" href="../CSSfolder/kpath.css" type="text/css" />
-	
-</head>
-
-
-
-<body>
-    <div id="wrapper">
-	<header>
-		<h1> Knight's Path</h1>
-		</header>
-	
-	<nav>
-    <ul>
-
-		
-		<li><a href="welcome.html">Home</a></li>
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+	<div class="navbar-nav">
+		<ul>
+		<li><a class="nav-item nav-link" routerLink="/">Home</a></li>
 		<br>
-		<li><a href="getstarted.html">Get Started</a></li>
+		<li><a class="nav-item nav-link" routerLink="/login">Login</a></li>
 		<br>
-		
-	</ul>
+		<li><a class="nav-item nav-link" routerLink="/register">Register</a></li>
 		<br>
-		<br>
-		
-		<div id="contact">
-			<span class="resort">Go Knights: UCF</span>
-			<br>
-			4000 Central Florida Blvd 
-			<br>
-			Orlando, FL 32816
-			<br>
-			<br>
-			(407) 823-2000
-			<br>
-			<br>
-		</div>
-	
-			
-	</nav>
-		
-	
-	<main>
-	<h2> Want to see your course plan? </h2>
-		<p> You've come to the right place.</p>
-		
-
-	
-
-	
-	<footer>
-		<br>
-		Copyright &copy; 2020 Knight's Path Course Planner
-		<br>
-		<a href="https://github.com/ellie7000/POOSD-Project">Group 11 Project</a>&nbsp;
-	</footer>
-	</main>
+		</ul>
 	</div>
-</body>
-	
-</html>
+	 <div id="contact">
+            <span class="resort">Go Knights: UCF</span>
+            <br>
+            4000 Central Florida Blvd
+            <br>
+            Orlando, FL 32816
+            <br>
+            <br>
+            (407) 823-2000
+            <br>
+            <br>
+        </div>
+</nav>
+
+<!-- main content container -->
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 offset-sm-2">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</div>
