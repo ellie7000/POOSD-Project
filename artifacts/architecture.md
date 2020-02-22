@@ -8,7 +8,7 @@
 ![ERD](pictures/ERD.jpg "ERD Diagram")
 
 # Business Rules
-TODO: Abhishek
+In terms of business rules, the application follows one rule. In order to protect the users' privacy, the application encrypts their passwords.
 
 # User Interface Design
 ![User Interface](pictures/UIDiagram.jpg "User Interface Diagram")
@@ -26,10 +26,10 @@ TODO: Christa
 TODO: Christa
 
 # Interoperability
-TODO: Abhishek
+The application does make use of interoperability as the website backend is connected to a database containing the specific majors and courses. The backend will access the information through  a series of API calls. 
 
 # Internationalization/Localization
-TODO: Abhishek
+The application will be able to hot multiple locals through the use of Microsoft Azure, which deploys the source code to a remote server that is linked to a URL that can be accessed locally.
 
 # Input/Output
 The input for this program will use a look-ahead reading scheme.  The input will also be event driven with the user interacting with the system through the website front-end.  Input devices will most likely be a keyboard and mouse for entering data and navigating the site, although a touch display may also be used if the site is accessed from a mobile device.  
@@ -47,7 +47,7 @@ In all other error cases, each class is responsible for checking data coming in 
 The fault tolerance of this system will be very high, as the user will only be navigate the site using built in buttons and sliders.  In the cases where input text is needed, the system will reject anything that is not formatted correctly so it will be very unlikely to encounter a scenario where the system would crash.  There should be very little opportunity for the user to make errors when using the system.
 
 # Architectural Feasibility
-TODO: Abhishek
+The application is able to be feasbily run due to extenseive testing to make sure that all of the components are properly connected and are able to recieve the data. The website backend and database in particular have been tested to ake sure that the information is sent and that it is accurate.
 
 # Overengineering
 The robustness of a program is its ability to cope with errors during execution. Architecture often leans towards a more robust system that includes overengineering, but our application is focused on doing the simplest thing that works. In order to implement this we have broken up the functionality of our program into concise parts. This allows for each aspect to be tested easily, which leads to a more reliable program overall.
