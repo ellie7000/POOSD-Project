@@ -12,6 +12,7 @@ In terms of business rules, the application follows one rule. In order to protec
 
 # User Interface Design
 ![User Interface](pictures/UIDiagram.jpg "User Interface Diagram")
+![User Interface](pictures/UI.PNG "User Interface Screenshot")
 
 # Resource Management
 The application draws information and data for predictions from a database populated with official data from the university catalogs. Building from the catalogs allows for easy management as the database needs to only be updated with each catalog year update. The application will store up users into a user database and courses into a major and course database. The application needs to account for such dynamic additions.
