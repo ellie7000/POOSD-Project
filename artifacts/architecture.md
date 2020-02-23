@@ -14,16 +14,16 @@ In terms of business rules, the application follows one rule. In order to protec
 ![User Interface](pictures/UIDiagram.jpg "User Interface Diagram")
 
 # Resource Management
-TODO: Christa
+The application draws information and data for predictions from a database populated with official data from the university catalogs. Building from the catalogs allows for easy management as the database needs to only be updated with each catalog year update. The application will store up users into a user database and courses into a major and course database. The application needs to account for such dynamic additions.
 
 # Security
-TODO: Christa
+As stated in the business rules, the application probably will only contain one aspect of needed protection-the privacy of the user. Using password encryption, in the form of Bcrypt, for each user added, protects their information.
 
 # Performance
-TODO: Christa
+The application should provide instruction throughout the process in prompting the user,making the application as easy to use as possible, in theory. Though the speed Vs. memory Vs. cost tadeoff isn't finalized at this stage of production, we believe that given our design and organization of the process allows for smooth user ineraction with the application. We believe this is possible through linked simple front end design and databases in the backend using Microsoft Azure, MongoDb, Node js, etc.. Thus, the goal is the plausibility of a reasonably fast course prediction planner.
 
 # Scalability
-TODO: Christa
+Because the application is being developed using the scaffolding, bottom-up, approach, most of the project is broken up into functionalities to be created from most fundamental to parts of mere extremety status. The user and major/course databases should be dynamic in the sense that they new entries can e created and added, as well as removals, and updates, etc..
 
 # Interoperability
 The application does make use of interoperability as the website backend is connected to a database containing the specific majors and courses. The backend will access the information through  a series of API calls. 
