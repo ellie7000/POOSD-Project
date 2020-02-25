@@ -2,25 +2,27 @@
     <header>
         <h1>Login</h1>
     </header>
-<alert></alert>
+    <alert></alert>
     <div class="form-style-5">
         <form>
             <fieldset>
-                <legend><span class="number">1</span> Account Info</legend>
-                <input 
-                    type="text" 
-                    name="username" 
+                <legend>Account Info</legend>
+                <input
+                    type="text"
+                    name="username"
                     placeholder="Username *"
-                    [(ngModel)]=user.username
-                >
-                <input 
-                    type="text" 
-                    name="password" 
+                    [(ngModel)]=user.username>
+                <input
+                    type="password"
+                    name="password"
                     placeholder="Password *"
-                    [(ngModel)]=user.password
-                >
+                    [(ngModel)]=user.password>
+
+                <!-- Password: <input type="password" value="FakePSW" id="myInput"><br><br> -->
+                <!-- <input type="checkbox" (click)="myFunction()">Show Password -->
+                
             </fieldset>
-            <input type="submit" value="Login" (click)="loginUser()"/>
+            <input type="submit" value="Login" (click)="loginUser()" />
         </form>
     </div>
 

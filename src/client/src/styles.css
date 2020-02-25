@@ -2,18 +2,19 @@ html{
     min-height:100%;
 }
 body{
-	background-image: linear-gradient(#FFCA06, #FFF2C1);
+	/* background-image: linear-gradient(#FFCA06, #FFF2C1); */
+	background-color: #FFCA06;
 	color: #000000;
-	font-family: Georgia;
+	font-family: Helvetica, sans-serif;
 	height: 100%;
 	margin: 0px;
 }
 header{
 	color: #000000;
-	font-family: 'Georgia';
+	font-family: 'Helvetica';
 }
 h1{
-	font-family: 'Georgia';
+	font-family: 'Helvetica';
 }
 header h1 {
 	text-indent:0.5em;
