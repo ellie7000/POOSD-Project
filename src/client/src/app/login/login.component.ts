@@ -62,4 +62,5 @@ export class LoginComponent implements OnInit{
     isEmptyOrSpaces(str: string) {
         return str === null || str.match(/^ *$/) !== null || str.length == 0;
     }
+
 }
