@@ -11,10 +11,10 @@ body{
 }
 header{
 	color: #000000;
-	font-family: 'Helvetica';
+	font-family: 'Helvetica', sans-serif;
 }
 h1{
-	font-family: 'Helvetica';
+	font-family: 'Helvetica', sans-serif;
 }
 header h1 {
 	text-indent:0.5em;
