@@ -16,6 +16,7 @@
   overflow-x: hidden;
   padding-top: 20px;
 }
+
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -23,10 +24,11 @@
   color: #ffffff;
   display: block;
 }
-.sidenav ul{
+ ul{
 	list-style: none;
 	padding: 0;
 }
+
 .sidenav a:hover {
   color: #ffffff;
 }
