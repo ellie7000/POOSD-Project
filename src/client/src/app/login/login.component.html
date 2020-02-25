@@ -2,15 +2,25 @@
     <header>
         <h1>Login</h1>
     </header>
-
+<alert></alert>
     <div class="form-style-5">
         <form>
             <fieldset>
                 <legend><span class="number">1</span> Account Info</legend>
-                <input type="text" name="field1" placeholder="Username *">
-                <input type="email" name="field2" placeholder="Password *">
+                <input 
+                    type="text" 
+                    name="username" 
+                    placeholder="Username *"
+                    [(ngModel)]=user.username
+                >
+                <input 
+                    type="text" 
+                    name="password" 
+                    placeholder="Password *"
+                    [(ngModel)]=user.password
+                >
             </fieldset>
-            <input type="submit" value="Login" />
+            <input type="submit" value="Login" (click)="loginUser()"/>
         </form>
     </div>
 
