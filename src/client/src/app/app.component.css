@@ -5,3 +5,28 @@
 	max-width:1300px;
 	margin: auto;
 }
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+}
+.sidenav ul{
+	list-style: none;
+	padding: 0;
+}
+.sidenav a:hover {
+  color: #ffffff;
+}

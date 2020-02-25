@@ -19,23 +19,6 @@ header h1 {
 	text-indent:0.5em;
 	text-align: center;
 }
-nav{
-	background-image: linear-gradient(#FFF2C1, #FFCA06);
-	float: left;
-	font-weight: bold;
-	width:200px;
-	height: 100%;
-	text-align: center;
-	margin: 0px;
-}
-nav ul{
-	list-style: none;
-	padding: 0;
-}
-nav a{
-	text-decoration: none;
-	text-align: center;
-}
 h2{
 	color: #000000;
 	text-align: center;
@@ -43,7 +26,6 @@ h2{
 dd{
 	margin-bottom: 1.5em;
 }
-
 dt{
 	color: #000099;
 	font-size: 14pt;
@@ -60,14 +42,15 @@ footer{
 	height: 60px;
 	width: 85%;
 }
-
 #contact{
 	font-size:90%;
 }
 #wrapper{
     width:80%;
 	text-align:center;
-	min-width:975px;
-	max-width:1300px;
+	/* min-width:975px;
+	max-width:1300px; */
 	margin: auto;
+	align-items: center;
+  	justify-content: center;
 }
