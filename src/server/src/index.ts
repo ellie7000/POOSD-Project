@@ -5,6 +5,8 @@ import { Courses } from './controllers/courses';
 import { Majors } from './controllers/majors';
 import { User } from './controllers/users';
 
+const Cors = require("cors");
+
 const app = Express();
 const port = 8080;
 
@@ -13,6 +15,8 @@ app.use(Session({
     resave: false,
     saveUninitialized: true
 }));
+
+app.use(Cors());
 
 app.use(Express.json());
 
