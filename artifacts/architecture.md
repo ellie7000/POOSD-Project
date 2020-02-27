@@ -1,11 +1,22 @@
 # Program Organization
 ![High Level Architecture](pictures/KnightsPath_High_level_architecture_design.jpg "High Level Architecture")
 
+# Container Diagram
+![Container Diagram](pictures/Container_Diagram.jpg "Container Diagram")
+The user will interact with the system through a website, and all the input and output will be displayed to the user through that website.  The web application will be built using Angular and JavaScript.  The website will make API calls to the backend server which will be built with Express and Node.js.  The backend will make requests to the database which will be built with MongoDB, and return the information from the database back to the website.
+
+# Component Diagram 
+![Component Diagram](pictures/Component_Diagram.jpg "Component Diagram")
+The backend server will be made of controllers that receive API calls from the website.  These controllers then make the proper requests from the database, or send information to be written to the database.  The controllers will then return a response if appropriate to the website.  
+
 # Major Classes
 ![Class Diagram](pictures/KnightsPath_Class_Diagram.jpg "Class Diagram")
 
 # Data Design
 ![ERD](pictures/ERD.jpg "ERD Diagram")
+There are 3 main items that are stored and maintained by the server.  These are Students, Majors, and Courses.  Courses contain appropriate fields such as number of credits, course ID, and name.  A Major has 2 fields, a name and a list of required Courses.  Students are the most complex, with fields such as name, email, and password, as well as a Major and a list of Courses.
+The database is structured so that there will be no duplicated information.  Majors simply have a list of references to the required Courses, and Students have a reference to a Major as well as to Courses.
+
 
 # Business Rules
 In terms of business rules, the application follows one rule. In order to protect the users' privacy, the application encrypts their passwords.
