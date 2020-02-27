@@ -1,4 +1,4 @@
-# Program Organization
+# Context Diagram
 ![High Level Architecture](pictures/KnightsPath_High_level_architecture_design.jpg "High Level Architecture")
 
 # Container Diagram
@@ -9,7 +9,7 @@ The user will interact with the system through a website, and all the input and 
 ![Component Diagram](pictures/Component_Diagram.jpg "Component Diagram")
 The backend server will be made of controllers that receive API calls from the website.  These controllers then make the proper requests from the database, or send information to be written to the database.  The controllers will then return a response if appropriate to the website.  
 
-# Major Classes
+# Class Diagram
 ![Class Diagram](pictures/KnightsPath_Class_Diagram.jpg "Class Diagram")
 
 # Data Design
