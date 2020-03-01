@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "ts-node node_modules/jasmine/bin/jasmine --random=false --config=jasmine.json",
+    "testJS": "./node_modules/.bin/jasmine-node ../tests/server",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "dev": "npx tsc && node build/index.js "
   },
