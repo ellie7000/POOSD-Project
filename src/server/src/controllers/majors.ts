@@ -46,7 +46,7 @@ export module Majors {
                 name: req.body.name,
             }).then(success => {
                 if (success) {
-                    res.status(200).send({ message: "Successful create major" });
+                    res.status(200).send({ message: "Successful create major", id: success.insertedId });
                     return res.end();
                 }
                 else {
@@ -60,7 +60,7 @@ export module Majors {
     export const deleteMajor = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
         res.type("json");
-        Database.majors.remove({ _id: Database.makeId(req.params.id) }).then(success => {
+        Database.majors.deleteOne({ _id: Database.makeId(req.params.id) }).then(success => {
             if (success) {
                 res.status(200).send({ message: "Successful delete major" });
                 return res.end();

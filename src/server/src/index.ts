@@ -41,6 +41,8 @@ app.post("/course", Courses.createCourse);
 
 app.get("/course/:id", Courses.getCourse);
 
+app.delete("/course/:id", Courses.deleteCourse);
+
 app.get("/majors", Majors.getAllMajors);
 
 app.post("/major", Majors.createMajor);

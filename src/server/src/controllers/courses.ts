@@ -25,7 +25,7 @@ export module Courses {
         Database.courses.findOne({ name: req.body.name }).then((result) => {
             // Validate
             if (result) {
-                res.status(403).send({ message: "This class name already exists" });
+                res.status(403).send({ message: "This course name already exists" });
                 return res.end();
             }
             if (!req.body.name) {
@@ -39,14 +39,29 @@ export module Courses {
                 credits: req.body.credits
             }).then(success => {
                 if (success) {
-                    res.status(200).send({ message: "Successful create class" });
+                    res.status(200).send({ message: "Successful create course", id: success.insertedId });
                     return res.end();
                 }
                 else {
-                    res.status(500).send({ message: "Unsuccessful create class" });
+                    res.status(500).send({ message: "Unsuccessful create course" });
                     return res.end();
                 }
             })
         }).catch(console.error);
-    }
+    };
+
+    export const deleteCourse = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        res.type("json");
+        Database.courses.deleteOne({ _id: Database.makeId(req.params.id) }).then(success => {
+            if (success) {
+                res.status(200).send({ message: "Successful delete course" });
+                return res.end();
+            }
+            else {
+                res.status(500).send({ message: "Unsuccessful delete course" });
+                return res.end();
+            }
+        }).catch(console.error);
+    };
 };

@@ -4,7 +4,7 @@
   "description": "For: UCF Students   Who: Want to make a graduation plan   The: KnightsPath Course Planner    Is a: Website    That: Recommends you customized courses based on your career interests and generates a long term plan    Unlike: MyUCF’s MyKnight Audit which is inconvenient and hard to visualize your progress    Our product: Is more user friendly, interactive, and visually appealing.",
   "main": "index.js",
   "scripts": {
-    "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json",
+    "test": "ts-node node_modules/jasmine/bin/jasmine --random=false --config=jasmine.json",
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test",
     "dev": "npx tsc && node build/index.js "
   },
