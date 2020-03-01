@@ -2,6 +2,9 @@ import Database from '../../server/src/db';
 
 let Request = require("request");
 
+const { Gen } = require("verify-it");
+const random_username = Gen.stringWithLength(10)();
+
 describe("Server", () => {
   var server;
   beforeAll(() => {
@@ -197,7 +200,7 @@ describe("Server", () => {
         {
           json: true,
           body: {
-            "username": "teststudent",
+            "username": random_username,
             "password": "test",
             "name": "Student",
             "email": "teststudent@knights.ucf.edu"
@@ -210,7 +213,7 @@ describe("Server", () => {
     });
 
     it('createUser', function () {
-      // expect(data.body.message).toEqual("Successful create user");
+      expect(data.body.message).toEqual("Successful create user");
     });
 
     describe('Test User Login', function () {
@@ -221,7 +224,7 @@ describe("Server", () => {
           {
             json: true,
             body: {
-              "username": "teststudent",
+              "username": random_username,
               "password": "test",
             }
           },
@@ -232,7 +235,7 @@ describe("Server", () => {
       });
 
       it('userLogin', function () {
-        //  expect(data.body.message).toEqual("Successful login");
+         expect(data.body.message).toEqual("Successful login");
       });
 
       describe('Test User Logout', function () {
@@ -250,7 +253,7 @@ describe("Server", () => {
         });
 
         it('userLogout', function () {
-          // expect(data.body.message).toEqual("Successful logout");
+          expect(data.body.message).toEqual("Successful logout");
         });
       });
     });
