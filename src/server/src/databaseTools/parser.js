@@ -28,7 +28,6 @@ const parse = function(str) {
     }
     coursesJSON = coursesJSON.substring(0, coursesJSON.length - 1);
     coursesJSON += (']}')
-    console.log(coursesJSON)
     return coursesJSON
 }
 module.exports = parse

@@ -1,4 +1,4 @@
-import Database from '../../server/src/db';
+import Database from '../../../server/src/db';
 
 let Request = require("request");
 
@@ -12,7 +12,7 @@ describe("Server", () => {
     Database.TESTMODE = true;
 
     // Before each set of tests, start the server and save a reference to it
-    server = require("../../server/src/index");
+    server = require("../../../server/src/index");
   });
   afterAll(() => {
     // After each set of tests, close the server
