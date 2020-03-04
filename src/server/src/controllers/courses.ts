@@ -1,5 +1,6 @@
 import Database from '../db';
 import Express from 'express';
+import parse from '../databaseTools/parser';
 
 export module Courses {
     export const getAllCourses = async (req: Express.Request, res: Express.Response) => {
@@ -63,5 +64,48 @@ export module Courses {
                 return res.end();
             }
         }).catch(console.error);
+    };
+
+    export const updateCourses = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        const str = `ACG 2021 - Principles of Financial Accounting
+        Credit Hours: 3
+        Class Hours: 3
+        Lab and Field Work Hours: 0
+        Contact Hours: 3
+        Prerequisite(s): MAC 1105C with a “C” (2.0) or better. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.
+        
+        Nature of accounting, financial statements, the accounting cycle, assets, current liabilities, long-term debt, and owner’s equity; accounting for proprietorships and corporations. Fall, Spring
+        BA-ACCT
+         
+        ACG 2021H - Honors Principles of Financial Accounting
+        Credit Hours: 3
+        Class Hours: 3
+        Lab and Field Work Hours: 0
+        Contact Hours: 3
+        Prerequisite(s): MAC 1105C with a “C” (2.0) or better, and consent of Honors. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.
+        `
+        // Parse the courses from the input string
+        var coursesJSON = parse(str)
+        var updatedCourses = coursesJSON.courses
+
+        for (var i = 0; i < updatedCourses.length; i++) {
+            console.log(updatedCourses[i].name)
+            // Check if the course already exists
+            var oldCourse = await (Database.courses.findOne({ name: updatedCourses[i].name }))
+            if (oldCourse != null) {
+                console.log('Course already exists')
+                // res.send({ message: "This course already exists" });
+            } else {
+                console.log('Updating database...')
+                Database.courses.insertOne({
+                    name: updatedCourses[i].name,
+                    courseCode: updatedCourses[i].courseCode,
+                    credits: updatedCourses[i].credits
+                })
+            }
+        }
+
+        res.send('Updating Courses...')
     };
 };

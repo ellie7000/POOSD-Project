@@ -1,6 +1,7 @@
+"use strict";
 const fs = require('fs')
 // This function parses a given string input for course information.
-// The course information is returned as a JSON string
+// The course information is returned as a JSON object
 const parse = function(str) {
     // This regular expression pulls the following capture groups from a string:
     // 3 letters from A-Z followed by 4 numbers and an optional letter tag - this is the course code
@@ -17,14 +18,16 @@ const parse = function(str) {
     // Initialize output string
     var coursesJSON = '{\"courses\":['
 
-    for (course of courses)
+    // Convert
+    var coursesArray = Array.from(courses)
+    for (var i = 0; i < coursesArray.length; i++)
     {
         // If we're here, the regular expression found something
         foundOne = true
-        courseJSON = {
-            name : course[2],
-            courseCode : course[1],
-            credits : course[3]
+        var courseJSON = {
+            name : coursesArray[i][2],
+            courseCode : coursesArray[i][1],
+            credits : coursesArray[i][3]
         }
         coursesJSON += JSON.stringify(courseJSON)
         coursesJSON += (',')

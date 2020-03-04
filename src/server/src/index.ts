@@ -51,6 +51,8 @@ app.get("/major/:id", Majors.getMajor);
 
 app.delete("/major/:id", Majors.deleteMajor);
 
+app.get("/courses/update", Courses.updateCourses);
+
 // start the Express server
 let server = app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
