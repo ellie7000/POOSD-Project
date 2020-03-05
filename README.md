@@ -80,10 +80,10 @@ The KnightsPath Course Planner is a website for UCF students who want to create 
 
 ## Sprint 6
 
-- [Responsibilities]()
+- [Responsibilities](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=811616818)
 - [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
 - [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- [Burndown Chart]()
+- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1942152241)
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
 - Design Documents
   - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
