@@ -77,3 +77,19 @@ The KnightsPath Course Planner is a website for UCF students who want to create 
 - [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
 - [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
 - [Demonstration](https://youtu.be/T8To_F3uswA)
+
+## Sprint 6
+
+- [Responsibilities]()
+- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
+- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
+- [Burndown Chart]()
+- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
+- Design Documents
+  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
+  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
+  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
+- [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
+- [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
+- [Demonstration]()
+
