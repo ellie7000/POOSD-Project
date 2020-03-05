@@ -7,7 +7,7 @@ function gpaCalc(grades:any [], credits:any []) {
 
     gradeLetters[0] = "A+";
     gradeValues[0] = 4.00;
-    gr[1] = "A";
+    gradeLetters[1] = "A";
     gradeValues[1] = 4.00;
     gradeLetters[2] = "A-"; 
     gradeValues[2] = 3.70;
@@ -73,8 +73,6 @@ function gpaCalc(grades:any [], credits:any []) {
         }
         gpa = totalGrades / totalCredits;
     }
-    
-    console.log("Your GPA is " + gpa);
 
     return 0;
 }
