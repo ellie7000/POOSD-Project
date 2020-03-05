@@ -33,6 +33,8 @@ app.post("/logout", User.logout);
 
 app.put("/user/major", User.putMajor);
 
+app.put("/user/course", User.putCourse);
+
 app.get("/user", User.getUser);
 
 app.get("/courses", Courses.getAllCourses);

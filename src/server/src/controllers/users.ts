@@ -111,6 +111,27 @@ export module User {
         }
     }
 
+    export const putCourse = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        if (req.session && req.session.userId) {
+            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $push: { coursesTaken: req.body.courseId } })
+                .then((result) => {
+                    if (result) {
+                        res.status(200).send({ message: "Successful update course" });
+                        return res.end();
+                    }
+                    else {
+                        res.status(500).send({ message: "Unsuccessful update course" });
+                        return res.end();
+                    }
+                }).catch(console.error);
+        }
+        else {
+            res.status(403).send({ message: "No user logged in" });
+            return res.end();
+        }
+    }
+
     export const getUser = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
         res.type("json");

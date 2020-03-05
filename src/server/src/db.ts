@@ -24,7 +24,8 @@ namespace Database {
         username: string,
         email: string,
         passwordHash: string,
-        majorId?: string
+        majorId?: string,
+        coursesTaken?: string[]
     }
     
     export function makeId(id: string) {
