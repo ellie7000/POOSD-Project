@@ -1,18 +1,37 @@
-<div class="modal-content">
-    <div class="modal-header">
-        <button type="button" class="close pull-right" aria-label="Close"
-            (click)="modalRef.hide()">
-            <span aria-hidden="true">×</span>
-        </button>
-        <h4 class="modal-title w-100" id="myModalLabel">My Courses</h4>
-    </div>
-    <div class="modal-body">
-       
-    </div>
-    <div class="modal-footer">
-        <button type="button" mdbBtn color="black" class="waves-light"
-            aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Close</button>
-        <button type="button" mdbBtn color="black" class="relative
-            waves-light" mdbWavesEffect>Save</button>
+
+<div class="modal-dialog-scrollable">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close"
+                (click)="modalRef.hide()">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title w-100" id="myModalLabel">Courses I've Taken:</h4>
+        </div>
+        <div class="modal-body">
+
+            <input class="form-control mb-10"
+                type="text"
+                placeholder="Search"
+                name="filterSearch"
+                [(ngModel)]="filterQuery">
+
+            <div *ngFor="let course of courses | coursefilter :
+                filterQuery">
+                <label>
+                    <input type="checkbox" [default]="false"
+                        value="{{course._id}}" />
+                    {{course.courseCode}}: {{course.name}}
+                </label>
+                <br>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" mdbBtn color="black" class="waves-light"
+                aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Close</button>
+            <button type="button" mdbBtn color="black" class="relative
+                waves-light" mdbWavesEffect>Save</button>
+        </div>
     </div>
 </div>
