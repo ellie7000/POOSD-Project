@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
-import { AlertService } from '../_services';
+import { Router } from '@angular/router';
 
 @Component({ 
     templateUrl: 'login.component.html',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit{
 
     constructor(
         private http: HttpClient,
-        private alertService: AlertService) { }
+        private router: Router) { }
 
     loginUser(): void {
         if (this.validate()) {
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit{
             }).subscribe({
                 next: data => {
                     console.log(data);
-                    this.success("");
+                    this.router.navigateByUrl('/about');
                 },
                 error: error => console.error(error)
             })
@@ -35,15 +35,6 @@ export class LoginComponent implements OnInit{
         else {
 
         }
-    }
-
-    success(message: string) {
-        this.alertService.success("Successful login");
-        console.log("here");
-    }
-
-    error(message: string) {
-        this.alertService.error("Unsuccessful login");
     }
 
     validate(): boolean {

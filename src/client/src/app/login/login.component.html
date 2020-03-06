@@ -1,4 +1,4 @@
-<div id="wrapper">
+<!-- <div id="wrapper">
     <header>
         <h1>Login</h1>
     </header>
@@ -18,11 +18,40 @@
                     placeholder="Password *"
                     [(ngModel)]=user.password>
 
-                <!-- Password: <input type="password" value="FakePSW" id="myInput"><br><br> -->
-                <!-- <input type="checkbox" (click)="myFunction()">Show Password -->
                 
             </fieldset>
             <input type="submit" value="Login" (click)="loginUser()" />
         </form>
     </div>
-</div>
+</div> -->
+
+<!-- Default form login -->
+<form class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">Sign in</p>
+
+  <!-- Email -->
+  <input
+    class="form-control mb-4"
+    type="text"
+    name="username"
+    placeholder="Username *"
+    [(ngModel)]=user.username>
+
+  <!-- Password -->
+  <input
+    class="form-control mb-4"
+    type="password"
+    name="password"
+    placeholder="Password *"
+    [(ngModel)]=user.password>
+
+  <!-- Sign in button -->
+  <button mdbBtn color="black" block="true" class="my-4" type="submit" (click)="loginUser()">Sign in</button>
+  <!-- Register -->
+  <p>Not a member?
+    <a href="/register">Sign Up</a>
+  </p>
+
+</form>
+<!-- Default form login -->
