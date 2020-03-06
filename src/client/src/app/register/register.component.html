@@ -1,49 +1,30 @@
-<div id="wrapper">
-    <header>
-        <h1>Register</h1>
-    </header>
+<!-- Default form register -->
+    <form class="text-center border border-light p-5">
 
-    <div class="form-style-5">
-        <form>
-            <fieldset>
-                <legend><span class="number">1</span> Student Info</legend>
-                <input type="text" name="field1" placeholder="Full Name *">
-                <input type="email" name="field2" placeholder="Email *">
+      <p class="h4 mb-4">Sign up</p>
 
-                <legend><span class="number">2</span> Account Info</legend>
-                <input type="text" name="field3" placeholder="Username *">
-                <input type="email" name="field4" placeholder="Password *">
+      <div class="form-row mb-4">
+        <div class="col">
+          <!-- First name -->
+          <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+        </div>
+        <div class="col">
+          <!-- Last name -->
+          <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+        </div>
+      </div>
 
-                <!--textarea name="field3" placeholder="About yourself"></textarea-->
-                <!-- <label for="job">Interests:</label> -->
-                <!-- <select id="job" name="field4">
-                    <optgroup label="Indoors">
-                        <option value="fishkeeping">Fishkeeping</option>
-                        <option value="reading">Reading</option>
-                        <option value="boxing">Boxing</option>
-                        <option value="debate">Debate</option>
-                        <option value="gaming">Gaming</option>
-                        <option value="snooker">Snooker</option>
-                        <option value="other_indoor">Other</option>
-                    </optgroup>
-                    <optgroup label="Outdoors">
-                        <option value="football">Football</option>
-                        <option value="swimming">Swimming</option>
-                        <option value="fishing">Fishing</option>
-                        <option value="climbing">Climbing</option>
-                        <option value="cycling">Cycling</option>
-                        <option value="other_outdoor">Other</option>
-                    </optgroup>
-                </select> -->
-                <!-- </fieldset>
-            <fieldset>
-                <legend><span class="number">2</span> Additional Info</legend>
-                <textarea name="field3" placeholder="About Your School"></textarea>
-            -->
+      <!-- E-mail -->
+      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
 
-            </fieldset>
-            <input type="submit" value="Sign Up" />
-        </form>
-    </div>
+       <!-- Username -->
+      <input type="test" id="username" class="form-control mb-4" placeholder="Username">
 
-</div>
+      <!-- Password -->
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+      
+      <!-- Sign up button -->
+      <button mdbBtn color="black" block="true" class="my-4" type="submit">Sign Up</button>
+
+    </form>
+    <!-- Default form register -->
