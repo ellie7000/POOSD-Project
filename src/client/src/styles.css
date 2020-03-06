@@ -1,8 +1,8 @@
+/*
 html{
     min-height:100%;
 }
 body{
-	/* background-image: linear-gradient(#FFCA06, #FFF2C1); */
 	background-color: #FFCA06;
 	color: #000000;
 	font-family: Helvetica, sans-serif;
@@ -46,9 +46,8 @@ footer{
 #wrapper{
     width:80%;
 	text-align:center;
-	/* min-width:975px;
-	max-width:1300px; */
 	margin: auto;
 	align-items: center;
   	justify-content: center;
 }
+*/
