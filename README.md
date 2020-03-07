@@ -91,5 +91,5 @@ The KnightsPath Course Planner is a website for UCF students who want to create 
   - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
 - [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
 - [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
-- [Demonstration]()
+- [Demonstration](https://youtu.be/oswtyPaRCfk)
 
