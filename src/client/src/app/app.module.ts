@@ -13,6 +13,7 @@ import { AboutComponent } from './about';
 import { MajorComponent } from './about/major/major.component';
 import { CoursesComponent } from './about/courses/courses.component';
 import { LogoutComponent } from './logout/logout.component';
+import { CourseFilterPipe } from './pipes/coursefilter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LogoutComponent } from './logout/logout.component';
     AboutComponent,
     MajorComponent,
     CoursesComponent,
-    LogoutComponent
+    LogoutComponent,
+    CourseFilterPipe
   ],
   imports: [
     BrowserModule,
