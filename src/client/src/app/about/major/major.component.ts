@@ -14,22 +14,10 @@ export class MajorComponent implements OnInit {
   majors: Major[];
   user: User;
 
-  constructor(public modalRef: MDBModalRef, private http: HttpClient,) { }
+  constructor(public modalRef: MDBModalRef, private http: HttpClient) { }
 
   ngOnInit() {
     this.getMajors();
-    this.getUser();
-  }
-
-  getUser() {
-    this.http.get<User>('http://localhost:8080/user')
-      .subscribe({
-        next: data => {
-          this.user = data;
-          console.log(this.user);
-        },
-        error: error => console.error(error)
-      })
   }
 
   getMajors(): void {
