@@ -58,6 +58,28 @@ export function gpaCalc(grades:any [], credits:any []) {
     gradeLetters[26] = "f";
     gradeValues[26] = 0.00;
 
+    if(grades == null) {
+        return null;
+    }
+    else {
+            for(i = 0; i < grades.length; i++) {
+            if(grades[i] == null) {
+                return null;
+            }
+        }
+    }
+
+    if(credits == null) {
+        return null;
+    }
+    else {
+        for(i = 0; i < credits.length; i++) {
+            if(credits[i] == null) {
+                return null;
+            }
+        }
+    }
+
     for (i = 0; i < grades.length; i++) {
         if (grades[i] == "") {
             break;
