@@ -20,7 +20,11 @@ export module User {
                 res.status(403).send({ message: "Incorrect password"});
                 return res.end();
             }
-            if (req.session) req.session.userId = result._id;
+
+            if (req.session) {
+                req.session.userId = ""+result._id;
+                res.cookie('sid', req.session.userId);
+            }
             res.status(200).send({ message: "Successful login" });
             return res.end();
 

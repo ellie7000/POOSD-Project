@@ -21,7 +21,7 @@ export class MajorComponent implements OnInit {
   }
 
   getMajors(): void {
-    this.http.get<Major[]>('http://localhost:8080/majors')
+    this.http.get<Major[]>('http://localhost:8080/api/majors')
       .subscribe({
         next: data => {
           this.majors = data;

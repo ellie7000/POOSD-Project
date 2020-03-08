@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
 
   async ngOnInit() {
     console.log(await this.userService.getUser());
+    
+    console.log(this.userService.isLoggedIn);
   }
 
   openMajor() {

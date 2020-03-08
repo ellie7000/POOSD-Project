@@ -3,6 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CookieService } from 'ngx-cookie-service';
 
 import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { ProfileComponent } from './profile/profile.component';
     MDBBootstrapModule.forRoot()
   ],
   providers: [
+    CookieService
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],

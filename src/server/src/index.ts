@@ -6,15 +6,24 @@ import { Majors } from './controllers/majors';
 import { User } from './controllers/users';
 
 const Cors = require("cors");
+const cookieParser = require('cookie-parser');
 
 const app = Express();
 const port = 8080;
 
-app.use(Session({ 
-    secret: 'ssshhhhh',
+const secret = 'cookie';
+
+app.use(Session({
+    name: 'sid',
+    secret: secret,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: false
+    }
 }));
+
+app.use(cookieParser(secret));
 
 app.use(Cors());
 
@@ -25,35 +34,35 @@ app.get("/", async (req: any, res: any) => {
 });
 
 // Routes
-app.post("/login", User.login);
+app.post("/api/login", User.login);
 
-app.post("/signup", User.createUser);
+app.post("/api/signup", User.createUser);
 
-app.post("/logout", User.logout);
+app.post("/api/logout", User.logout);
 
-app.put("/user/major", User.putMajor);
+app.put("/api/user/major", User.putMajor);
 
-app.put("/user/course", User.putCourse);
+app.put("/api/user/course", User.putCourse);
 
-app.get("/user", User.getUser);
+app.get("/api/user", User.getUser);
 
-app.get("/courses", Courses.getAllCourses);
+app.get("/api/courses", Courses.getAllCourses);
 
-app.post("/course", Courses.createCourse);
+app.post("/api/course", Courses.createCourse);
 
-app.get("/course/:id", Courses.getCourse);
+app.get("/api/course/:id", Courses.getCourse);
 
-app.delete("/course/:id", Courses.deleteCourse);
+app.delete("/api/course/:id", Courses.deleteCourse);
 
-app.get("/majors", Majors.getAllMajors);
+app.get("/api/majors", Majors.getAllMajors);
 
-app.post("/major", Majors.createMajor);
+app.post("/api/major", Majors.createMajor);
 
-app.get("/major/:id", Majors.getMajor);
+app.get("/api/major/:id", Majors.getMajor);
 
-app.delete("/major/:id", Majors.deleteMajor);
+app.delete("/api/major/:id", Majors.deleteMajor);
 
-app.get("/courses/update", Courses.updateCourses);
+app.get("/api/courses/update", Courses.updateCourses);
 
 // start the Express server
 let server = app.listen(port, () => {

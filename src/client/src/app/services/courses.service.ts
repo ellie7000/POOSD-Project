@@ -12,6 +12,6 @@ export class CoursesService {
   public _coursesPromise: Promise<Course[]>;
 
   constructor(private http: HttpClient) {
-    this._coursesPromise= this.http.get<Course[]>('http://localhost:8080/courses').toPromise();
+    this._coursesPromise= this.http.get<Course[]>('http://localhost:8080/api/courses').toPromise();
   }
 }

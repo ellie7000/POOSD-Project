@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
       const data = await this.userService.login(this.user.username, this.user.password);
       console.log(data);
       this.router.navigateByUrl('/profile');
-      console.log(await this.userService.getUser());
     }
     else {
 
