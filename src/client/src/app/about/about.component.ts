@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { MajorComponent } from './major/major.component';
 import { CoursesComponent } from './courses/courses.component';
+import { UserService } from '../services/user.service';
 
 @Component({ 
     templateUrl: 'about.component.html',
@@ -10,9 +11,10 @@ import { CoursesComponent } from './courses/courses.component';
 export class AboutComponent implements OnInit {
     modalRef: MDBModalRef;
 
-    constructor(private modalService: MDBModalService) { }
+    constructor(private modalService: MDBModalService, private userService: UserService) { }
 
-    ngOnInit() {
+    async ngOnInit() {
+        console.log(await this.userService.getUser());
     }
 
     openMajor() {

@@ -2,35 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
-@Component({ 
+@Component({
     templateUrl: 'login.component.html',
     styleUrls: ['./login.component.css']
- })
-export class LoginComponent implements OnInit{
+})
+export class LoginComponent implements OnInit {
 
     user: User;
 
     ngOnInit(): void {
-       this.user = { username:"", password:"" };
+        this.user = { username: "", password: "" };
     }
 
     constructor(
         private http: HttpClient,
-        private router: Router) { }
+        private router: Router,
+        private userService: UserService) { }
 
-    loginUser(): void {
+    async loginUser() {
         if (this.validate()) {
-            this.http.post<User>('http://localhost:8080/login', {
-                "username": this.user.username,
-                "password": this.user.password,
-            }).subscribe({
-                next: data => {
-                    console.log(data);
-                    this.router.navigateByUrl('/about');
-                },
-                error: error => console.error(error)
-            })
+            const data = await this.userService.login(this.user.username, this.user.password);
+            console.log(data);
+            this.router.navigateByUrl('/about');
+            console.log(await this.userService.getUser());
         }
         else {
 
