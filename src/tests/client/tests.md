@@ -1,0 +1,6 @@
+- [HomeComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/home/home.component.spec.ts)
+- [LoginComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/login/login.component.spec.ts)
+- [LogoutComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/logout/logout.component.spec.ts)
+- [ProfileComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/profile/profile.component.spec.ts)
+- [RegisterComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/register/register.component.spec.ts)
+- [AppComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/app.component.spec.ts)
