@@ -1,0 +1,3 @@
+- Each component in our UI has unit tests for the source files in the corresponding spec files.
+- They are run using the Jasmine testing framework
+    - Run command: ng test
