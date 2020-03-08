@@ -6,22 +6,22 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
-import { LoginComponent } from './login';
-import { RegisterComponent } from './register';
-import { AboutComponent } from './about';
-import { MajorComponent } from './about/major/major.component';
-import { CoursesComponent } from './about/courses/courses.component';
+import { MajorComponent } from './profile/major/major.component';
+import { CoursesComponent } from './profile/courses/courses.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CourseFilterPipe } from './pipes/coursefilter.pipe';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProfileComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AboutComponent,
     MajorComponent,
     CoursesComponent,
     LogoutComponent,
