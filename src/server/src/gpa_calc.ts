@@ -1,4 +1,4 @@
-function gpaCalc(grades:any [], credits:any []) {
+export function gpaCalc(grades:any [], credits:any []) {
     var gradeLetters = new Array();
     var gradeValues = new Array();
     var i, j;
@@ -74,5 +74,5 @@ function gpaCalc(grades:any [], credits:any []) {
         gpa = totalGrades / totalCredits;
     }
 
-    return 0;
+    return gpa;
 }
