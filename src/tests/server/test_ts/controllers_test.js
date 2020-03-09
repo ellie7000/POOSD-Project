@@ -124,6 +124,7 @@ describe("Server", () => {
         });
     });
 
+
     it('createCourse', function () {
       expect(data.body.message).toEqual("Successful create course");
     });
@@ -236,6 +237,26 @@ describe("Server", () => {
 
       it('userLogin', function () {
          expect(data.body.message).toEqual("Successful login");
+      });
+
+      describe('Test Get A User', function () {
+        var data = {};
+        // Before each individual test, issue an HTTP request and save the response
+        beforeAll((done) => {
+          while (id === ""); // Wait for id from create
+          Request.get("http://localhost:8080/User/",
+            {
+              json: true
+            },
+            (error, response, body) => {
+              data.body = response.body;
+              done();
+            });
+        });
+  
+        it('getUser', function () {
+          expect(data.body.name).toEqual("Test User");
+        });
       });
 
       describe('Test User Logout', function () {
