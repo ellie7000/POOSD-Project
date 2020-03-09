@@ -12,6 +12,8 @@ export class UserService {
 
   public _loginPromise: Promise<User>;
   public _getUserPromise: Promise<User>;
+  public _getAddCoursePromise: Promise<User>;
+  public _getSelectMajorPromise: Promise<User>;
 
   constructor(private http: HttpClient, private cookies: CookieService) {
     if (cookies.get('sid')) {
@@ -22,7 +24,7 @@ export class UserService {
   async login(username: string, password: string) {
     await (this._loginPromise = this.http.post<User>('http://localhost:4200/api/login', {
       "username": username,
-      "password": password,
+      "password": password
     }).toPromise());
     this.isLoggedIn = true;
     console.log(this.cookies.get("userId"));
@@ -37,6 +39,18 @@ export class UserService {
 
   async getUser() {
     return this._getUserPromise = this.http.get<User>('http://localhost:4200/api/user').toPromise();
+  }
+
+  async addCourse(majorId: string) {
+    return this._getAddCoursePromise = this.http.put<User>('http://localhost:4200/api/user/major', { 
+      "majorId": majorId 
+    }).toPromise();
+  }
+
+  async selectMajor(courseId: string) {
+    return this._getSelectMajorPromise = this.http.put<User>('http://localhost:4200/api/user/course', { 
+      "courseId": courseId
+    }).toPromise();
   }
 
 }

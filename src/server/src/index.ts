@@ -29,6 +29,16 @@ app.use(Cors());
 
 app.use(Express.json());
 
+app.use((req, res, next) => {
+    if (req.session && req.session.username) {
+        res.cookie('userId', req.session.userId);
+    }
+    else {
+        res.clearCookie('userId');
+    }
+    next();
+});
+
 app.get("/", async (req: any, res: any) => {
     res.send("This is our POOSD API");
 });

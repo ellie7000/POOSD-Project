@@ -23,7 +23,7 @@ export module User {
 
             if (req.session) {
                 req.session.userId = ""+result._id;
-                res.cookie('sid', req.session.userId);
+                res.cookie('userId', req.session.userId);
             }
             res.status(200).send({ message: "Successful login" });
             return res.end();
@@ -85,6 +85,7 @@ export module User {
     export const logout = async (req: Express.Request, res: Express.Response) => {
         if (req.session) {
             delete req.session.userId;
+            res.clearCookie('sid');
             res.status(200).send({ message: "Successful logout" });
             return res.end();
         }

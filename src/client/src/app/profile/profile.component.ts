@@ -22,11 +22,11 @@ export class ProfileComponent implements OnInit {
   }
 
   openMajor() {
-    this.modalRef = this.modalService.show(MajorComponent)
+    this.modalRef = this.modalService.show(MajorComponent);
   }
 
   openCourses() {
-    this.modalRef = this.modalService.show(CoursesComponent)
+    this.modalRef = this.modalService.show(CoursesComponent);
   }
 
 }
