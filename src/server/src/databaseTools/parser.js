@@ -9,7 +9,8 @@ const parse = function(str) {
     // Strip out the string 'Credit Hours:' then capture the number of credit hours
     // i.e: (Course Code)('-')(Course Name)('Credit Hours:')(Credits)
     // with the capture groups being (Course Code)(Course Name)(Credits)
-    const regex = /([A-Z]{3} [0-9]{4}[A-Z]*)(?: - )(.+)(?:[^C]+\bCredit Hours: \b)(\d)/g
+    // const regex = /([A-Z]{3} [0-9]{4}[A-Z]*)(?: - )(.+)(?:[^C]+\bCredit Hours: \b)(\d)/g
+    const regex = /([A-Z]{3} [0-9]{4}[A-Z]*)(?: - )(.+)(?:\s+\bCredit Hours: \b)(\d)(?:[^]+?(?=Prerequisite\(s\): )Prerequisite\(s\): )([^]+?(?= Corequisite\(s\): |\n))(?:Corequisite\(s\): )*/g
     // Pull the capture groups out with the regular expression
     var courses = str.matchAll(regex)
     // Whether or not the regular expression found anything, initially false
@@ -27,7 +28,8 @@ const parse = function(str) {
         var courseJSON = {
             name : coursesArray[i][2],
             courseCode : coursesArray[i][1],
-            credits : coursesArray[i][3]
+            credits : coursesArray[i][3],
+            prerequisites : coursesArray[i][4]
         }
         coursesJSON += JSON.stringify(courseJSON)
         coursesJSON += (',')
