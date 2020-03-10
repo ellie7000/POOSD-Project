@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  public isLoggedIn = false;
+  public isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   public _loginPromise: Promise<User>;
   public _getUserPromise: Promise<User>;
@@ -17,7 +18,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private cookies: CookieService) {
     if (cookies.get('sid')) {
-      this.isLoggedIn = true;
+      this.isUserLoggedIn.next(true);
     }
   }
 
@@ -26,30 +27,29 @@ export class UserService {
       "username": username,
       "password": password
     }).toPromise());
-    this.isLoggedIn = true;
-    console.log(this.cookies.get("userId"));
+    this.isUserLoggedIn.next(true);
     return this._loginPromise;
   }
 
   async logout() {
     await (this._loginPromise = this.http.post<User>('http://localhost:4200/api/logout', {}).toPromise());
-    this.isLoggedIn = false;
+    this.isUserLoggedIn.next(false);
   }
 
 
   async getUser() {
-    return this._getUserPromise = this.http.get<User>('http://localhost:4200/api/user').toPromise();
+    return this._getUserPromise = this.http.get<User>('http://localhost:4200/api/user', {}).toPromise();
   }
 
-  async addCourse(majorId: string) {
-    return this._getAddCoursePromise = this.http.put<User>('http://localhost:4200/api/user/major', { 
-      "majorId": majorId 
+  async addCourse(courseId: string) {
+    return this._getAddCoursePromise = this.http.put<User>('http://localhost:4200/api/user/course', { 
+      "courseId": courseId
     }).toPromise();
   }
 
-  async selectMajor(courseId: string) {
-    return this._getSelectMajorPromise = this.http.put<User>('http://localhost:4200/api/user/course', { 
-      "courseId": courseId
+  async selectMajor(majorId: string) {
+    return this._getSelectMajorPromise = this.http.put<User>('http://localhost:4200/api/user/major', { 
+      "majorId": majorId 
     }).toPromise();
   }
 
