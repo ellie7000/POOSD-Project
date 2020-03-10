@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PlannerComponent } from './planner/planner.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfileComponent } from './profile/profile.component';
     MajorComponent,
     CoursesComponent,
     LogoutComponent,
-    CourseFilterPipe
+    CourseFilterPipe,
+    PlannerComponent
   ],
   imports: [
     BrowserModule,

@@ -11,10 +11,11 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  user: User;
+  username: string;
+  password: string;
 
   ngOnInit(): void {
-    this.user = { username: "", password: "" };
+
   }
 
   constructor(
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   async loginUser() {
     if (this.validate()) {
-      const data = await this.userService.login(this.user.username, this.user.password);
+      const data = await this.userService.login(this.username, this.password);
       console.log(data);
       this.router.navigateByUrl('/profile');
     }
@@ -36,10 +37,10 @@ export class LoginComponent implements OnInit {
   validate(): boolean {
     let valid: boolean = true;
 
-    if (this.isEmptyOrSpaces(this.user.username)) {
+    if (this.isEmptyOrSpaces(this.username)) {
       valid = false;
     }
-    if (this.isEmptyOrSpaces(this.user.password)) {
+    if (this.isEmptyOrSpaces(this.password)) {
       valid = false;
     }
 

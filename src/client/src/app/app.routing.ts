@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PlannerComponent } from './planner/planner.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'logout', component: LogoutComponent },
+    { path: 'planner', component: PlannerComponent},
 
 
     // otherwise redirect to home
