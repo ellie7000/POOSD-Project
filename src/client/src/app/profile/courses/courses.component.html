@@ -20,7 +20,7 @@
                 filterQuery">
                 <label>
                     <input type="checkbox" [default]="false"
-                        value="{{course._id}}" />
+                        value="{{course._id}}" (click)="onAdd(course.name)" />
                     {{course.courseCode}}: {{course.name}}
                 </label>
                 <br>
@@ -31,7 +31,7 @@
             <button type="button" mdbBtn color="black" class="waves-light"
                 aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Close</button>
             <button type="button" mdbBtn color="black" class="relative
-                waves-light" mdbWavesEffect>Save</button>
+                waves-light" (click)="modalRef.hide(); onSave()" mdbWavesEffect>Save</button>
         </div>
     </div>
 </div>
