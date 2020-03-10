@@ -119,7 +119,7 @@ export module User {
     export const putCourse = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
         if (req.session && req.session.userId) {
-            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $push: { coursesTaken: req.body } })
+            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $push: { coursesTaken: req.body.courseId } })
                 .then((result) => {
                     if (result) {
                         res.status(200).send({ message: "Successful update course" });
