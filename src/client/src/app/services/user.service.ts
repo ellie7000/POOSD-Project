@@ -14,7 +14,9 @@ export class UserService {
   public _loginPromise: Promise<User>;
   public _getUserPromise: Promise<User>;
   public _getAddCoursePromise: Promise<User>;
+  public _getDeleteCoursePromise: Promise<User>;
   public _getSelectMajorPromise: Promise<User>;
+  public _registerPromise: Promise<User>;
 
   constructor(private http: HttpClient, private cookies: CookieService) {
     if (cookies.get('sid')) {
@@ -50,6 +52,21 @@ export class UserService {
   async selectMajor(majorId: string) {
     return this._getSelectMajorPromise = this.http.put<User>('http://localhost:4200/api/user/major', { 
       "majorId": majorId 
+    }).toPromise();
+  }
+
+  async register(firstName: string, lastName: string, email: string, username: string, password: string) {
+    return this._registerPromise = this.http.post<User>('http://localhost:4200/api/signup', {
+      "name": firstName + " " + lastName,
+      "email": email, 
+      "username": username,
+      "password": password
+    }).toPromise();
+  }
+
+  async deleteCourse(courseId: string) {
+    return this._getDeleteCoursePromise = this.http.put<User>('http://localhost:4200/api/user/deleteCourse/', {
+      "courseId": courseId
     }).toPromise();
   }
 
