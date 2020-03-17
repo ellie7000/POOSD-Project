@@ -7,4 +7,5 @@ export class User {
     email: string;
     majorId?: string;
     coursesTaken?: UserCourse[];
+    coursesToTake?: UserCourse[];
 }

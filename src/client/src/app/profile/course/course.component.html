@@ -9,7 +9,6 @@
             <h4 class="modal-title w-100" id="myModalLabel">{{course.name}}</h4>
         </div>
         <div class="modal-body">
-
             <h5>
                 Info:
             </h5>
@@ -17,24 +16,21 @@
             <br>
             Credits: {{course.credits}}
             <br>
-            Grade: {{userCourse.grade}}
+            Grade: {{userGrade}}
             <select class="browser-default custom-select"
                 [(ngModel)]="userGrade">
-                <option selected>Change</option>
                 <option *ngFor="let grade of grades">
                     {{ grade }}
                 </option>
             </select>
             <br>
-            Semester: {{userCourse.semester}}
+            Semester: {{userSemester}}
             <select class="browser-default custom-select"
                 [(ngModel)]="userSemester">
-                <option selected>Change</option>
                 <option *ngFor="let semester of semesters">
                     {{ semester }}
                 </option>
             </select>
-
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger"

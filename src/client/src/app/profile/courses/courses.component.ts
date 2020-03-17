@@ -14,12 +14,12 @@ export class CoursesComponent implements OnInit {
 
   courses: Course[] = [];
   course: string;
+  listName: string;
 
   constructor(
     public modalRef: MDBModalRef, 
     private courseService: CoursesService,
-    private userService: UserService,
-    private coursesService: CoursesService) { }
+    private userService: UserService) { }
 
   async ngOnInit() {
     await this.getCourses();
@@ -30,8 +30,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onAdd(courseName: string) {
-    this.userService.addCourse(this.courseService.coursesMap.get(courseName)._id, "", "");
-    console.log(this.userService.getUser());
+    this.userService.addCourse(this.courseService.coursesMap.get(courseName)._id, "", "", this.listName);
   }
 
   onSave() {

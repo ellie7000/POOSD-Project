@@ -18,7 +18,8 @@ import { UserCourse } from '../models/userCourse.model';
 export class ProfileComponent implements OnInit {
 
   major: string;
-  courses: string[] = [];
+  coursesTaken: string[] = [];
+  coursesToTake: string[] = [];
   user: User;
 
   modalRef: MDBModalRef;
@@ -36,7 +37,12 @@ export class ProfileComponent implements OnInit {
       this.major = this.majorService.majorsMapId.get(this.user.majorId).name;
     if (this.user.coursesTaken) {
       for (const c of this.user.coursesTaken) {
-        this.courses.push((await this.coursesService.getCourse(c.courseId)));
+        this.coursesTaken.push((await this.coursesService.getCourse(c.courseId)));
+      }
+    }
+    if (this.user.coursesToTake) {
+      for (const c of this.user.coursesToTake) {
+        this.coursesToTake.push((await this.coursesService.getCourse(c.courseId)));
       }
     }
   }
@@ -45,13 +51,17 @@ export class ProfileComponent implements OnInit {
     this.modalRef = this.modalService.show(MajorComponent);
   }
 
-  openCourses() {
-    this.modalRef = this.modalService.show(CoursesComponent);
+  openCourses(listName: string) {
+    this.modalRef = this.modalService.show(CoursesComponent, { data: { listName } });
   }
 
-  openCourse(course: Course) {
-    const userCourse: UserCourse = this.user.coursesTaken.find((c) => c.courseId === course._id);
-    this.modalRef = this.modalService.show(CourseComponent, { data: { course, userCourse} });
+  openCourse(course: Course, listName: string) {
+    let userCourse: UserCourse;
+    if (listName === 'coursesTaken')
+      userCourse = this.user.coursesTaken.find((c) => c.courseId === course._id);
+    else if (listName === 'coursesToTake')
+      userCourse = this.user.coursesToTake.find((c) => c.courseId === course._id);
+    this.modalRef = this.modalService.show(CourseComponent, { data: { course, userCourse, listName} });
   }
 
 }

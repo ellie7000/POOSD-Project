@@ -30,7 +30,7 @@ import { CourseComponent } from './profile/course/course.component';
     LogoutComponent,
     CourseFilterPipe,
     PlannerComponent,
-    CourseComponent
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,12 +47,12 @@ import { CourseComponent } from './profile/course/course.component';
   exports: [
     MajorComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
   ],
   entryComponents: [
     MajorComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
   ]
 })
 export class AppModule { 

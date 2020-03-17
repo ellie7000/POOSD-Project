@@ -26,9 +26,18 @@
                 <br>
             </div>
 
+            <div *ngIf="courses.length == 0">
+                <div class="text-center pt-4">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-success" (click)="modalRef.hide(); onSave()" mdbWavesEffect>Save</button>
+            <button type="button" class="btn btn-success"
+                (click)="modalRef.hide(); onSave()" mdbWavesEffect>Save</button>
         </div>
     </div>
 </div>

@@ -15,7 +15,6 @@ const routes: Routes = [
     { path: 'logout', component: LogoutComponent },
     { path: 'planner', component: PlannerComponent},
 
-
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

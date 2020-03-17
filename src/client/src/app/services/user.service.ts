@@ -44,8 +44,9 @@ export class UserService {
     return this._getUserPromise = this.http.get<User>('http://localhost:4200/api/user', {}).toPromise();
   }
 
-  async addCourse(courseId: string, semester: string, grade: string) {
+  async addCourse(courseId: string, semester: string, grade: string, listName: string) {
     return this._getAddCoursePromise = this.http.put<User>('http://localhost:4200/api/user/course', { 
+      "listName": listName,
         "userCourse": {
           "courseId": courseId,
           "semester": semester,
@@ -69,8 +70,9 @@ export class UserService {
     }).toPromise();
   }
 
-  async deleteCourse(courseId: string, semester: string, grade: string) {
+  async deleteCourse(courseId: string, semester: string, grade: string, listName: string) {
     return this._getDeleteCoursePromise = this.http.put<User>('http://localhost:4200/api/user/deleteCourse/', {
+      "listName": listName,
       "userCourse": {
         "courseId": courseId,
         "semester": semester,
@@ -79,8 +81,9 @@ export class UserService {
     }).toPromise();
   }
 
-  async updateCourse(courseId: string, semester: string, grade: string) {
+  async updateCourse(courseId: string, semester: string, grade: string, listName: string) {
     return this._getUpdateCoursePromise = this.http.put<User>('http://localhost:4200/api/user/updateCourse', {
+      "listName": listName,
       "courseId": courseId,
       "semester": semester,
       "grade": grade
