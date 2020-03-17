@@ -1,54 +1,59 @@
-<!-- Default form register -->
-<form class="text-center border border-light p-5">
+ <div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <!-- Default form register -->
+    <form class="text-center border border-light p-5">
 
-  <p class="h4 mb-4">Sign up</p>
+      <p class="h4 mb-4">Sign up</p>
 
-  <div class="form-row mb-4">
-    <div class="col">
-      <!-- First name -->
+      <div class="form-row mb-4">
+        <div class="col">
+          <!-- First name -->
+          <input
+            type="text"
+            name="firstName"
+            class="form-control"
+            placeholder="First name *"
+            [(ngModel)]=firstName>
+        </div>
+        <div class="col">
+          <!-- Last name -->
+          <input
+            type="text"
+            name="lastName"
+            class="form-control"
+            placeholder="Last name *"
+            [(ngModel)]=lastName>
+        </div>
+      </div>
+
+      <!-- E-mail -->
       <input
-        type="text" 
-        name="firstName" 
-        class="form-control"
-        placeholder="First name *"
-        [(ngModel)]=firstName>
-    </div>
-    <div class="col">
-      <!-- Last name -->
-      <input 
-        type="text" 
-        name="lastName" 
-        class="form-control"
-        placeholder="Last name *"
-        [(ngModel)]=lastName>
-    </div>
+        type="email"
+        name="email"
+        class="form-control mb-4"
+        placeholder="E-mail *"
+        [(ngModel)]=email>
+
+      <!-- Username -->
+      <input
+        class="form-control mb-4"
+        type="text"
+        name="username"
+        placeholder="Username *"
+        [(ngModel)]=username>
+
+      <!-- Password -->
+      <input
+        class="form-control mb-4"
+        type="password"
+        name="password"
+        placeholder="Password *"
+        [(ngModel)]=password>
+
+      <!-- Sign up button -->
+      <button mdbBtn color="black" block="true" class="my-4" type="submit"
+        (click)="onSave()">Sign Up</button>
+    </form>
+    <!-- Default form register -->
   </div>
-
-  <!-- E-mail -->
-  <input 
-    type="email" 
-    name="email" 
-    class="form-control mb-4"
-    placeholder="E-mail *"
-    [(ngModel)]=email>
-
-  <!-- Username -->
-  <input
-    class="form-control mb-4"
-    type="text"
-    name="username"
-    placeholder="Username *"
-    [(ngModel)]=username>
-
-  <!-- Password -->
-  <input
-    class="form-control mb-4"
-    type="password"
-    name="password"
-    placeholder="Password *"
-    [(ngModel)]=password>
-
-  <!-- Sign up button -->
-  <button mdbBtn color="black" block="true" class="my-4" type="submit" (click)="onSave()">Sign Up</button>
-</form>
-<!-- Default form register -->
+</div>

@@ -22,15 +22,4 @@ export class LogoutComponent implements OnInit {
     private router: Router,
     private userService: UserService) { }
 
-  // logoutUser(): void {
-  //   console.log("here");
-  //     this.http.post<User>('http://localhost:8080/logout', {}).subscribe({
-  //       next: data => {
-  //         console.log(data);
-  //         this.router.navigateByUrl('/');
-  //       },
-  //       error: error => console.error(error)
-  //     })
-  // }
-
 }
