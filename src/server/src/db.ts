@@ -32,6 +32,7 @@ namespace Database {
         passwordHash: string,
         majorId?: string,
         coursesTaken?: UserCourse[]
+        coursesToTake?: UserCourse[]
     }
     
     export function makeId(id: string) {
@@ -47,7 +48,6 @@ namespace Database {
     export var TESTMODE = false;
 
     const DB_URL = 'mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority';
-    // const DB_URL = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false';
 
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);
