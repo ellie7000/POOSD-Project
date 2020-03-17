@@ -13,6 +13,12 @@ namespace Database {
         credits: number;
     }
 
+    export interface UserCourse {
+        courseId: string;
+        semester: string;
+        grade: string;
+    }
+
     export interface Major {
         _id: string | mongodb.ObjectID,
         name: string
@@ -25,7 +31,7 @@ namespace Database {
         email: string,
         passwordHash: string,
         majorId?: string,
-        coursesTaken?: string[]
+        coursesTaken?: UserCourse[]
     }
     
     export function makeId(id: string) {
@@ -41,7 +47,7 @@ namespace Database {
     export var TESTMODE = false;
 
     const DB_URL = 'mongodb+srv://POOSDKnightsPathAdmin:POOSDKnightsPathPassword@cluster0-tfoma.azure.mongodb.net/test?retryWrites=true&w=majority';
-    //const DB_URL = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false';
+    // const DB_URL = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false';
 
     export async function connectToMongo(): Promise<mongodb.Db> {
         if (db) return Promise.resolve(db);

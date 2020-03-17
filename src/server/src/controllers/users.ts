@@ -119,7 +119,29 @@ export module User {
     export const putCourse = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
         if (req.session && req.session.userId) {
-            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $push: { coursesTaken: req.body.courseId } })
+            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $push: { coursesTaken: req.body.userCourse } })
+                .then((result) => {
+                    if (result) {
+                        res.status(200).send({ message: "Successful course add" });
+                        return res.end();
+                    }
+                    else {
+                        res.status(500).send({ message: "Unsuccessful course add" });
+                        return res.end();
+                    }
+                }).catch(console.error);
+        }
+        else {
+            res.status(403).send({ message: "No user logged in" });
+            return res.end();
+        }
+    }
+
+    export const updateCourse = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        if (req.session && req.session.userId) {
+            Database.users.updateOne({ _id: Database.makeId(req.session.userId),  "coursesTaken.courseId" : req.body.courseId }, 
+                { $set: { "coursesTaken.$.semester": req.body.semester, "coursesTaken.$.grade": req.body.grade} } )
                 .then((result) => {
                     if (result) {
                         res.status(200).send({ message: "Successful update course" });
@@ -140,7 +162,7 @@ export module User {
     export const deleteCourseFromUser = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
         if (req.session && req.session.userId) {
-            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $pull: { coursesTaken: req.body.courseId } })
+            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $pull: { coursesTaken: req.body.userCourse } })
                 .then((result) => {
                     if (result) {
                         res.status(200).send({ message: "Successful delete course" });
