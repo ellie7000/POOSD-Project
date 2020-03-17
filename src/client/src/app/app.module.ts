@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlannerComponent } from './planner/planner.component';
+import { CourseComponent } from './profile/course/course.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PlannerComponent } from './planner/planner.component';
     CoursesComponent,
     LogoutComponent,
     CourseFilterPipe,
-    PlannerComponent
+    PlannerComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
@@ -44,11 +46,13 @@ import { PlannerComponent } from './planner/planner.component';
   schemas: [NO_ERRORS_SCHEMA],
   exports: [
     MajorComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseComponent
   ],
   entryComponents: [
     MajorComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseComponent
   ]
 })
 export class AppModule { 

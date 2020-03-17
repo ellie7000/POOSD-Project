@@ -1,3 +1,4 @@
+import { UserCourse } from './userCourse.model';
 
 export class User {
     username: string;
@@ -5,5 +6,5 @@ export class User {
     name: string;
     email: string;
     majorId?: string;
-    coursesTaken?: string[];
+    coursesTaken?: UserCourse[];
 }

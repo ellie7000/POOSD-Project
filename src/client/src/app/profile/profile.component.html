@@ -1,5 +1,5 @@
 <div class="text-center mb-4">
-    <h1> Welcome {{user.name}}</h1>
+    <!-- <h1> Welcome {{user.name}}</h1> -->
     <br>
 
     <div class="row mb-4">
@@ -20,7 +20,11 @@
             <br>
             <ul class="list-group">
                 <div *ngFor="let course of courses">
-                    <li class="list-group-item">{{course}}</li>
+                    <li class="list-group-item">{{course.name}}
+                        <span class = "pl-2">
+                            <mdb-icon far icon="edit" (click)="openCourse(course)"></mdb-icon>
+                        </span>
+                    </li>
                 </div>
             </ul>
         </div>

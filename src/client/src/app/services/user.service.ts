@@ -17,6 +17,7 @@ export class UserService {
   public _getDeleteCoursePromise: Promise<User>;
   public _getSelectMajorPromise: Promise<User>;
   public _registerPromise: Promise<User>;
+  public _getUpdateCoursePromise: Promise<User>;
 
   constructor(private http: HttpClient, private cookies: CookieService) {
     if (cookies.get('sid')) {
@@ -43,9 +44,13 @@ export class UserService {
     return this._getUserPromise = this.http.get<User>('http://localhost:4200/api/user', {}).toPromise();
   }
 
-  async addCourse(courseId: string) {
+  async addCourse(courseId: string, semester: string, grade: string) {
     return this._getAddCoursePromise = this.http.put<User>('http://localhost:4200/api/user/course', { 
-      "courseId": courseId
+        "userCourse": {
+          "courseId": courseId,
+          "semester": semester,
+          "grade": grade
+      }
     }).toPromise();
   }
 
@@ -64,9 +69,21 @@ export class UserService {
     }).toPromise();
   }
 
-  async deleteCourse(courseId: string) {
+  async deleteCourse(courseId: string, semester: string, grade: string) {
     return this._getDeleteCoursePromise = this.http.put<User>('http://localhost:4200/api/user/deleteCourse/', {
-      "courseId": courseId
+      "userCourse": {
+        "courseId": courseId,
+        "semester": semester,
+        "grade": grade
+      }
+    }).toPromise();
+  }
+
+  async updateCourse(courseId: string, semester: string, grade: string) {
+    return this._getUpdateCoursePromise = this.http.put<User>('http://localhost:4200/api/user/updateCourse', {
+      "courseId": courseId,
+      "semester": semester,
+      "grade": grade
     }).toPromise();
   }
 

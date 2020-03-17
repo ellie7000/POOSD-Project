@@ -1,0 +1,46 @@
+
+<div class="modal-dialog-scrollable">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close pull-right" aria-label="Close"
+                (click)="modalRef.hide()">
+                <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title w-100" id="myModalLabel">{{course.name}}</h4>
+        </div>
+        <div class="modal-body">
+
+            <h5>
+                Info:
+            </h5>
+            Course Code: {{course.courseCode}}
+            <br>
+            Credits: {{course.credits}}
+            <br>
+            Grade: {{userCourse.grade}}
+            <select class="browser-default custom-select"
+                [(ngModel)]="userGrade">
+                <option selected>Change</option>
+                <option *ngFor="let grade of grades">
+                    {{ grade }}
+                </option>
+            </select>
+            <br>
+            Semester: {{userCourse.semester}}
+            <select class="browser-default custom-select"
+                [(ngModel)]="userSemester">
+                <option selected>Change</option>
+                <option *ngFor="let semester of semesters">
+                    {{ semester }}
+                </option>
+            </select>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger"
+                (click)="modalRef.hide(); onDelete()" mdbWavesEffect>Delete</button>
+            <button type="button" class="btn btn-success"
+                (click)="modalRef.hide(); onSave()" mdbWavesEffect>Save</button>
+        </div>
+    </div>
+</div>

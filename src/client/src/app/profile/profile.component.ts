@@ -7,6 +7,8 @@ import { User } from '../models/user.model';
 import { MajorService } from '../services/major.service';
 import { Course } from '../models/course.model';
 import { CoursesService } from '../services/courses.service';
+import { CourseComponent } from './course/course.component';
+import { UserCourse } from '../models/userCourse.model';
 
 @Component({
   selector: 'app-profile',
@@ -34,7 +36,7 @@ export class ProfileComponent implements OnInit {
       this.major = this.majorService.majorsMapId.get(this.user.majorId).name;
     if (this.user.coursesTaken) {
       for (const c of this.user.coursesTaken) {
-        this.courses.push((await this.coursesService.getCourse(c)).name);
+        this.courses.push((await this.coursesService.getCourse(c.courseId)));
       }
     }
   }
@@ -45,6 +47,11 @@ export class ProfileComponent implements OnInit {
 
   openCourses() {
     this.modalRef = this.modalService.show(CoursesComponent);
+  }
+
+  openCourse(course: Course) {
+    const userCourse: UserCourse = this.user.coursesTaken.find((c) => c.courseId === course._id);
+    this.modalRef = this.modalService.show(CourseComponent, { data: { course, userCourse} });
   }
 
 }

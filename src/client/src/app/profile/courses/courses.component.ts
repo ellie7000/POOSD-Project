@@ -30,7 +30,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onAdd(courseName: string) {
-    this.userService.addCourse(this.courseService.coursesMap.get(courseName)._id);
+    this.userService.addCourse(this.courseService.coursesMap.get(courseName)._id, "", "");
     console.log(this.userService.getUser());
   }
 

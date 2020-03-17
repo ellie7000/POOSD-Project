@@ -19,9 +19,6 @@
     </div>
 
     <div class="modal-footer">
-        <button type="button" mdbBtn color="black" class="waves-light"
-            aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Close</button>
-        <button type="button" mdbBtn color="black" class="relative
-            waves-light" (click)="onSave();modalRef.hide()" mdbWavesEffect>Save</button>
+        <button type="button" class="btn btn-success" (click)="modalRef.hide(); onSave()" mdbWavesEffect>Save</button>
     </div>
 </div>
