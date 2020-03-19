@@ -44,9 +44,13 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "get-website-text": "^1.0.1",
     "jasmine-node": "^3.0.0",
     "jasmine-ts": "^0.3.0",
+    "phantomjs": "^2.1.7",
     "request": "^2.88.2",
+    "scraperjs": "^1.2.0",
+    "simplecrawler": "^1.1.8",
     "verify-it": "^2.3.2"
   }
 }

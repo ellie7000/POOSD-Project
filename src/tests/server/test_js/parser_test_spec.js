@@ -6,12 +6,7 @@ describe('Test Parser', function () {
     // Verify parse returns a JSON object with 1 course object with the proper data
     it('Parse one course to JSON', function () {
 
-        const str = `ACG 2021 - Principles of Financial Accounting
-        Credit Hours: 3
-        Class Hours: 3
-        Lab and Field Work Hours: 0
-        Contact Hours: 3
-        Prerequisite(s): MAC 1105C with a “C” (2.0) or better. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.`
+        const str = `ACG 2021 - Principles of Financial Accounting Credit Hours: 3Class Hours: 3Lab and Field Work Hours: 0Contact Hours: 3Prerequisite(s): MAC 1105C with a “C” (2.0) or better. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.`
         var courseJSON = parse(str)
 
         expect(courseJSON.courses[0].name).toEqual("Principles of Financial Accounting");

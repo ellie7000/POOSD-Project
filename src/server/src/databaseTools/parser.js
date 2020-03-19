@@ -10,7 +10,8 @@ const parse = function(str) {
     // i.e: (Course Code)('-')(Course Name)('Credit Hours:')(Credits)
     // with the capture groups being (Course Code)(Course Name)(Credits)
     // const regex = /([A-Z]{3} [0-9]{4}[A-Z]*)(?: - )(.+)(?:[^C]+\bCredit Hours: \b)(\d)/g
-    const regex = /([A-Z]{3} [0-9]{4}[A-Z]*)(?: - )(.+)(?:\s+\bCredit Hours: \b)(\d)(?:[^]+?(?=Prerequisite\(s\): )Prerequisite\(s\): )([^]+?(?= Corequisite\(s\): |\n))(?:Corequisite\(s\): )*/g
+    //const regex = /([A-Z]{3} [0-9]{4}[A-Z]*)(?: - )(.+)(?:\s+\bCredit Hours: \b)(\d)(?:[^]+?(?=Prerequisite\(s\): )Prerequisite\(s\): )([^]+?(?= Corequisite\(s\): |\n))(?:Corequisite\(s\): )*/g
+      const regex = /([A-Z]{3} [0-9]{4}[A-Z]*)(?: - )(.+)(?:\s+\bCredit Hours: \b)(\d)(?:[^]+?(?=Prerequisite\(s\): )Prerequisite\(s\): )([^]+?(?= Corequisite\(s\): |(?=  [A-Z])))(?: Corequisite\(s\): )*/g
     // Pull the capture groups out with the regular expression
     var courses = str.matchAll(regex)
     // Whether or not the regular expression found anything, initially false

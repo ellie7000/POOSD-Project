@@ -68,22 +68,30 @@ export module Courses {
 
     export const updateCourses = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
-        const str = `ACG 2021 - Principles of Financial Accounting
-        Credit Hours: 3
-        Class Hours: 3
-        Lab and Field Work Hours: 0
-        Contact Hours: 3
-        Prerequisite(s): MAC 1105C with a “C” (2.0) or better. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.
-        
-        Nature of accounting, financial statements, the accounting cycle, assets, current liabilities, long-term debt, and owner’s equity; accounting for proprietorships and corporations. Fall, Spring
-        BA-ACCT
+        const str = `
          
-        ACG 2021H - Honors Principles of Financial Accounting
-        Credit Hours: 3
-        Class Hours: 3
-        Lab and Field Work Hours: 0
-        Contact Hours: 3
-        Prerequisite(s): MAC 1105C with a “C” (2.0) or better, and consent of Honors. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.
+ACG 2021 - Principles of Financial Accounting
+Credit Hours: 3
+Class Hours: 3
+Lab and Field Work Hours: 0
+Contact Hours: 3
+Prerequisite(s): MAC 1105C with a “C” (2.0) or better. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.
+
+Nature of accounting, financial statements, the accounting cycle, assets, current liabilities, long-term debt, and owner’s equity; accounting for proprietorships and corporations. Fall, Spring
+
+BA-ACCT
+  	
+ 
+ACG 2021H - Honors Principles of Financial Accounting
+Credit Hours: 3
+Class Hours: 3
+Lab and Field Work Hours: 0
+Contact Hours: 3
+Prerequisite(s): MAC 1105C with a “C” (2.0) or better, and consent of Honors. Corequisite(s): None. Prerequisite(s) or Corequisite(s): None.
+
+Same as ACG 2021 with honors level content. Occasional
+
+BA-ACCT
         `
         // Parse the courses from the input string
         var coursesJSON = parse(str)
@@ -94,10 +102,21 @@ export module Courses {
             // Check if the course already exists
             var oldCourse = await (Database.courses.findOne({ name: updatedCourses[i].name }))
             if (oldCourse != null) {
-                console.log('Course already exists')
-                // res.send({ message: "This course already exists" });
+                // Check if any of the fields of the course have changed
+                if (oldCourse.courseCode != updatedCourses[i].courseCode ||
+                    oldCourse.credits != updatedCourses[i].credits) {
+                        console.log('Updating courses')
+                        // Update the course with the new information
+                        Database.courses.update(
+                            { name: updatedCourses[i].name }, 
+                            {
+                                name: updatedCourses[i].name,
+                                courseCode: updatedCourses[i].courseCode,
+                                credits: updatedCourses[i].credits
+                            })
+                }
             } else {
-                console.log('Updating database...')
+                // Course doesn't exist already so add it to the database
                 Database.courses.insertOne({
                     name: updatedCourses[i].name,
                     courseCode: updatedCourses[i].courseCode,
