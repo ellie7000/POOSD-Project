@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +10,16 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  firstName: string;
-  lastName: string;
-  email: string; 
-  username: string; 
-  password: string;
+  firstName: string = "";
+  lastName: string = "";
+  email: string = ""; 
+  username: string = ""; 
+  password: string = "";
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private alerts: AlertsService
   ) { }
 
   ngOnInit() {
@@ -25,13 +27,17 @@ export class RegisterComponent implements OnInit {
 
   async onSave() {
     if (this.validate()) {
-      const data = await this.userService.register(this.firstName, this.lastName, this.email, this.username, this.password);
-      console.log("here");
-      console.log(data);
-      this.router.navigateByUrl('/login');
+      try {
+        const data = await this.userService.register(this.firstName, this.lastName, this.email, this.username, this.password);
+        this.router.navigateByUrl('/login');
+        this.alerts.setMessage("Successfully created account", 'success');
+      }
+      catch (e) {
+        this.alerts.setMessage(e.error.message, 'error');
+      }
     }
     else {
-
+      this.alerts.setMessage("Must fill out all fields", 'error');
     }
   }
 
@@ -44,8 +50,15 @@ export class RegisterComponent implements OnInit {
     if (this.isEmptyOrSpaces(this.password)) {
       valid = false;
     }
-
-    // Check rest of attributes
+    if (this.isEmptyOrSpaces(this.email)) {
+      valid = false;
+    }
+    if (this.isEmptyOrSpaces(this.firstName)) {
+      valid = false;
+    }
+    if (this.isEmptyOrSpaces(this.lastName)) {
+      valid = false;
+    }
 
     return valid;
   }

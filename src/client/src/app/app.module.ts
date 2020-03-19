@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CookieService } from 'ngx-cookie-service';
+import { AlertsModule } from 'angular-alert-module';
 
 import { appRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlannerComponent } from './planner/planner.component';
 import { CourseComponent } from './profile/course/course.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { CourseComponent } from './profile/course/course.component';
     appRoutingModule,
     HttpClientModule,
     FormsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    AlertsModule.forRoot()
   ],
   providers: [
     CookieService

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
 import { ThrowStmt } from '@angular/compiler';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-logout',
@@ -13,13 +14,20 @@ import { ThrowStmt } from '@angular/compiler';
 export class LogoutComponent implements OnInit {
 
   async ngOnInit() {
-    await this.userService.logout();
-    this.router.navigateByUrl('/');
+    try {
+      await this.userService.logout();
+      this.alerts.setMessage('Successful logout', 'success');
+      this.router.navigateByUrl('/');
+    }
+    catch (e) {
+      this.alerts.setMessage(e.error.message, 'error');
+    }
   }
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private userService: UserService) { }
+    private userService: UserService,
+    private alerts: AlertsService) { }
 
 }

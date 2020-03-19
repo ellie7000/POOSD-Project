@@ -3,6 +3,7 @@ import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,8 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  username: string;
-  password: string;
+  username: string = "";
+  password: string = "";
 
   ngOnInit(): void {
 
@@ -21,16 +22,22 @@ export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private userService: UserService) { }
+    private userService: UserService,
+    private alerts: AlertsService) { }
 
   async loginUser() {
     if (this.validate()) {
-      const data = await this.userService.login(this.username, this.password);
-      console.log(data);
-      this.router.navigateByUrl('/profile');
+      try {
+        const data = await this.userService.login(this.username, this.password);
+        this.alerts.setMessage('Successful login', 'success');
+        this.router.navigateByUrl('/profile');
+      }
+      catch (e){
+        this.alerts.setMessage(e.error.message, 'error');
+      }
     }
     else {
-
+      this.alerts.setMessage("Missing username and/or password", 'error');
     }
   }
 
