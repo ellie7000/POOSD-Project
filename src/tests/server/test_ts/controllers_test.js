@@ -43,7 +43,7 @@ describe("Server", () => {
     it('createMajor', function () {
       expect(data.body.message).toEqual("Successful create major");
     });
-
+  });
     describe('Test Get All Majors', function () {
       var data = {};
       var major = {};
@@ -101,7 +101,6 @@ describe("Server", () => {
       });
     });
 
-  });
 
 //===================================================Course Tests===================================================//
   describe('Test Create Course', function () {
@@ -123,11 +122,10 @@ describe("Server", () => {
           done();
         });
     });
-
-
     it('createCourse', function () {
       expect(data.body.message).toEqual("Successful create course");
     });
+  });
 
     describe('Test Get All Courses', function () {
       var data = {};
@@ -190,7 +188,7 @@ describe("Server", () => {
       });
     });
 
-  });
+  
 
   //===================================================User Tests===================================================//
   describe('Test Create User', function () {
@@ -216,6 +214,7 @@ describe("Server", () => {
     it('createUser', function () {
       expect(data.body.message).toEqual("Successful create user");
     });
+  });
 
     describe('Test User Login', function () {
       var data = {};
@@ -238,6 +237,7 @@ describe("Server", () => {
       it('userLogin', function () {
          expect(data.body.message).toEqual("Successful login");
       });
+    });
 
       describe('Test Get A User', function () {
         var data = {};
@@ -277,7 +277,5 @@ describe("Server", () => {
           expect(data.body.message).toEqual("Successful logout");
         });
       });
-    });
-  });
 
 });

@@ -36,6 +36,18 @@ describe('Test GPA Calculation', function() {
 
         expect(calculatedGpa).toEqual(null);
     });
+    
+    it('Calculates GPA with null credit and null grade input', function() {
+
+        var grades = new Array();
+        var credits = new Array();
+        grades = null;
+        credits = null;
+
+        var calculatedGpa = gpaCalc(grades, credits);
+
+        expect(calculatedGpa).toEqual(null)
+    });
 
     it('Calculates GPA with credit input, but some grade input', function(){
        
@@ -55,5 +67,16 @@ describe('Test GPA Calculation', function() {
         var calculatedGpa = gpaCalc(grades, credits);
 
         expect(calculatedGpa).toEqual(null);
+    });
+    
+    //Verify that any grades that are empty strings are skipped over
+    it('Calculates GPA where some grades are empty strings', function() {
+        
+        var grades = ["A", "B+", "", "B", ""]; 
+        var credits = [4, 3, 3, 4, 3];
+
+        var calculatedGpa = gpaCalc(grades, credits);
+
+        expect(calculatedGpa).toEqual(37.99/17)
     });
 });
