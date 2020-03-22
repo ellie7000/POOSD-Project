@@ -38,16 +38,25 @@ export module Majors {
     export const getMajorRequirements = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
         res.type("json");
-        Database.majors.findOne({ _id: Database.makeId(req.params.id) }).then((result) => {
-            if (result) {
-                res.status(200).send(JSON.stringify(result.requirements?.sort(compareCourses)));
-                return res.end();
+        // Initialize a new array of courses
+        var requirements:Database.Course[] = new Array();
+        // Look up the major in the database
+        var major = await (Database.majors.findOne({ _id: Database.makeId(req.params.id) }))
+        if (major) {
+            // Sort the requirements for the major by course code
+            var sortedResult = major.requirements?.sort(compareCourses);
+            if (sortedResult) {
+                for (var string of sortedResult) {
+                    // Look up the course code in the courses database
+                    var course = await (Database.courses.findOne({ courseCode: string}))
+                    if (course) {
+                        requirements.push(course)
+                    }
+                }
             }
-            else {
-                res.status(500).send({ message: "Major not found" });
-                return res.end();
-            }
-        }).catch(console.error);
+        }
+        res.status(200).send(JSON.stringify(requirements));
+        return res.end();
     };
 
     export const createMajor = async (req: Express.Request, res: Express.Response) => {
