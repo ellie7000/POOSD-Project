@@ -74,6 +74,8 @@ app.post("/api/major", Majors.createMajor);
 
 app.get("/api/major/:id", Majors.getMajor);
 
+app.get("/api/major/:id/requirements", Majors.getMajorRequirements);
+
 app.delete("/api/major/:id", Majors.deleteMajor);
 
 app.get("/api/courses/update", Courses.updateCourses);

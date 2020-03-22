@@ -21,7 +21,8 @@ namespace Database {
 
     export interface Major {
         _id: string | mongodb.ObjectID,
-        name: string
+        name: string,
+        requirements?: string[]
     }
 
     export interface User {
