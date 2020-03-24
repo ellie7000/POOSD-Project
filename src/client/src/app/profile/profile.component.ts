@@ -9,6 +9,7 @@ import { Course } from '../models/course.model';
 import { CoursesService } from '../services/courses.service';
 import { CourseComponent } from './course/course.component';
 import { UserCourse } from '../models/userCourse.model';
+import { RequiredCoursesComponent } from './required-courses/required-courses.component';
 
 @Component({
   selector: 'app-profile',
@@ -62,6 +63,10 @@ export class ProfileComponent implements OnInit {
     else if (listName === 'coursesToTake')
       userCourse = this.user.coursesToTake.find((c) => c.courseId === course._id);
     this.modalRef = this.modalService.show(CourseComponent, { data: { course, userCourse, listName} });
+  }
+
+  openRequiredCourses() {
+    this.modalRef = this.modalService.show(RequiredCoursesComponent);
   }
 
 }
