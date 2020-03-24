@@ -1,1 +1,44 @@
-<p>planner works!</p>
+<div class="text-center">
+    <h1>
+        My UCF Graduation Plan
+    </h1>
+    <br>
+
+</div>
+
+<div class="row">
+    <div class="col-3" *ngFor="let yearly of mp.value.entries()">
+        <div class="text-center">
+            <h2>{{yearly[0]}}</h2>
+        </div>
+        <div *ngFor="let semesterly of yearly[1].entries()">
+            <div class="pb-3">
+                <mdb-card>
+                    <!--Card image-->
+                    <mdb-card-img
+                        src="https://business.ucf.edu/wp-content/uploads/2014/11/millican-hall-reflecting-pond.jpg"
+                        alt="Card image cap"></mdb-card-img>
+
+                    <!--Card content-->
+                    <mdb-card-body>
+
+                        <!--Title-->
+                        <mdb-card-title>
+                            <h4>{{semesterly[0]}} {{yearly[0]}}</h4>
+                        </mdb-card-title>
+
+                        <!--Text-->
+                        <mdb-card-text>
+                            <ul>
+                                <span *ngFor="let c of semesterly[1]">
+
+                                    <li>{{c.courseInfo.name}}</li>
+                                </span></ul>
+
+                        </mdb-card-text>
+
+                    </mdb-card-body>
+                </mdb-card></div>
+            </div>
+        </div>
+</div>

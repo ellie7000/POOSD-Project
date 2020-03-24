@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PlannerComponent } from './planner/planner.component';
 import { CourseComponent } from './profile/course/course.component';
+import { RequiredCoursesComponent } from './profile/required-courses/required-courses.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CourseComponent } from './profile/course/course.component';
     CourseFilterPipe,
     PlannerComponent,
     CourseComponent,
+    RequiredCoursesComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,11 +53,13 @@ import { CourseComponent } from './profile/course/course.component';
     MajorComponent,
     CoursesComponent,
     CourseComponent,
+    RequiredCoursesComponent,
   ],
   entryComponents: [
     MajorComponent,
     CoursesComponent,
     CourseComponent,
+    RequiredCoursesComponent,
   ]
 })
 export class AppModule { 
