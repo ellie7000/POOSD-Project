@@ -1,5 +1,5 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false">
+<mdb-navbar SideClass="navbar fixed-top mb-5 navbar-expand-lg navbar-dark black" [containerInside]="false">
 
   <!-- Navbar brand -->
   <mdb-navbar-brand><a class="navbar-brand" href="#">Knight's Path</a></mdb-navbar-brand>
@@ -19,7 +19,7 @@
       </div>
       <div *ngIf="isUserLoggedIn">
          <li class="nav-item">
-          <a class="nav-link waves-light" href="/planner" mdbWavesEffect>Planner</a>
+          <a class="nav-link waves-light" href="/planner" mdbWavesEffect>Graduation Plan</a>
         </li> 
       </div>
     </ul>
@@ -51,8 +51,8 @@
 <!--/.Navbar-->
 
 <!-- main content container -->
-<div class="jumbotron">
-  <div class="container">
+<div class="jumbotron-fluid pt-5">
+  <div class="container pt-5">
     <router-outlet></router-outlet>
 	</div>
 </div>
