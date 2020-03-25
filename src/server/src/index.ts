@@ -60,6 +60,8 @@ app.put("/api/user/deleteCourse", User.deleteCourseFromUser);
 
 app.get("/api/user", User.getUser);
 
+app.get("/api/user/majorRequirements", User.getUserMajorRequirements)
+
 app.get("/api/courses", Courses.getAllCourses);
 
 app.post("/api/course", Courses.createCourse);

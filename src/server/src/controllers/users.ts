@@ -116,6 +116,76 @@ export module User {
         }
     }
 
+
+    // A compare function that compares the 4 digit code in a course code
+    var compareCourses = function (str1: String, str2: String) {
+        // Regular expression to pull out the 4 digit course code
+        const regex = /([0-9]{4})*/g;
+        var code1 = str1.match(regex);
+        var code2 = str2.match(regex);
+        if (code1 == null || code2 == null) {return 0;}
+        if (code1 < code2) {return -1;}
+        if (code2 < code2) {return 1;}
+        return 0;
+    }
+
+    export const getUserMajorRequirements = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        res.type("json");
+
+        var requirements:Database.Course[] = new Array();
+        // Make sure a user is logged in
+        if (req.session && req.session.userId) {
+            // Pull the user data from the database
+            var user = await (Database.users.findOne({ _id: Database.makeId(req.session?.userId) }))
+            if (user && user.coursesTaken && user.majorId) {
+                // Pull the users major from the database
+                var major = await (Database.majors.findOne({ _id: Database.makeId(user.majorId) }))
+                if (major) {
+                    // Sort the requirements for the major by course code
+                    var sortedResult = major.requirements?.sort(compareCourses);
+                    if (sortedResult) {
+                        for (var string of sortedResult) {
+                            // Look up the course code in the courses database
+                            var course = await (Database.courses.findOne({ courseCode: string}))
+                            if (course) {
+                                var foundOne = false
+
+                                // Check if the user has already taken the required course
+                                for (var i = 0; i < user.coursesTaken.length; i++) {
+                                    if (course._id == user.coursesTaken[i].courseId) {
+                                        console.log('User has already taken course ' + course.name)
+                                        foundOne = true
+                                        break
+                                    }
+                                }
+                                // If the user has not already taken the required course, push it onto the list
+                                if (!foundOne) {
+                                    requirements.push(course)
+                                }
+                            } else {
+                                res.status(403).send({ message: "Could not find required course" });
+                                return res.end();
+                            }
+                        }
+                    }
+                } else {
+                    res.status(403).send({ message: "User has invalid major" });
+                    return res.end();
+                }
+            } else {
+                res.status(403).send({ message: "Could not find user" });
+                return res.end();
+            }
+            res.status(200).send(JSON.stringify(requirements));
+            return res.end();
+        }
+        else {
+            res.status(403).send({ message: "No user logged in" });
+            return res.end();
+        }
+    }
+
     export const putCourse = async (req: Express.Request, res: Express.Response) => {
         await Database.connectToMongo();
         if (req.session && req.session.userId) {
