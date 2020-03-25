@@ -56,6 +56,8 @@ app.put("/api/user/course", User.putCourse);
 
 app.put("/api/user/updateCourse", User.updateCourse);
 
+app.put("/api/user/moveCourse", User.moveCourse)
+
 app.put("/api/user/deleteCourse", User.deleteCourseFromUser);
 
 app.get("/api/user", User.getUser);

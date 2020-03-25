@@ -154,7 +154,6 @@ export module User {
                                 // Check if the user has already taken the required course
                                 for (var i = 0; i < user.coursesTaken.length; i++) {
                                     if (course._id == user.coursesTaken[i].courseId) {
-                                        console.log('User has already taken course ' + course.name)
                                         foundOne = true
                                         break
                                     }
@@ -255,6 +254,43 @@ export module User {
             }
         }
         else {
+            res.status(403).send({ message: "No user logged in" });
+            return res.end();
+        }
+    }
+
+    export const moveCourse = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        
+        // Make sure the user is logged in
+        if (req.session && req.session.userId) {
+            // Make sure the user is trying to move from coursesToTake to coursesTaken
+            if (req.body.listName === "coursesToTake" && req.body.userCourse) {
+                // Delete the course from coursesToTake
+                Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $pull: { coursesToTake: req.body.userCourse } })
+                    .then((result) => {
+                        if (result && req.session) {
+                            // Add the course to coursesTaken
+                            Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $push: { coursesTaken: req.body.userCourse } })
+                                .then((result) => {
+                                    if (result) {
+                                        res.status(200).send({ message: "Successful move course" });
+                                        return res.end();
+                                    } else {
+                                        res.status(500).send({ message: "Unsuccessful move course" });
+                                        return res.end();
+                                    }
+                                }).catch(console.error);
+                        } else {
+                            res.status(500).send({ message: "Unsuccessful move course" });
+                            return res.end();
+                        }
+                    }).catch(console.error);
+            } else {
+                res.status(500).send({ message: "Unsuccessful move course" });
+                return res.end();
+            }
+        } else {
             res.status(403).send({ message: "No user logged in" });
             return res.end();
         }
