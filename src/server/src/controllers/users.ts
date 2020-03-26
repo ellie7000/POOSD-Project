@@ -138,7 +138,7 @@ export module User {
         if (req.session && req.session.userId) {
             // Pull the user data from the database
             var user = await (Database.users.findOne({ _id: Database.makeId(req.session?.userId) }))
-            if (user && user.coursesTaken && user.majorId) {
+            if (user && user.majorId && (user.coursesTaken || user.coursesToTake)) {
                 // Pull the users major from the database
                 var major = await (Database.majors.findOne({ _id: Database.makeId(user.majorId) }))
                 if (major) {
@@ -151,13 +151,26 @@ export module User {
                             if (course) {
                                 var foundOne = false
 
-                                // Check if the user has already taken the required course
-                                for (var i = 0; i < user.coursesTaken.length; i++) {
-                                    if (course._id == user.coursesTaken[i].courseId) {
-                                        foundOne = true
-                                        break
+                                if (user.coursesTaken) {
+                                    // Check if the user has already taken the required course
+                                    for (var i = 0; i < user.coursesTaken.length; i++) {
+                                        if (course._id == user.coursesTaken[i].courseId) {
+                                            foundOne = true
+                                            break
+                                        }
                                     }
                                 }
+
+                                if (user.coursesToTake) {
+                                    // Check if the user has already added course to list
+                                    for (var i = 0; i < user.coursesToTake.length; i++) {
+                                        if (course._id == user.coursesToTake[i].courseId) {
+                                            foundOne = true
+                                            break
+                                        }
+                                    }
+                                }
+
                                 // If the user has not already taken the required course, push it onto the list
                                 if (!foundOne) {
                                     requirements.push(course)
@@ -265,7 +278,7 @@ export module User {
         // Make sure the user is logged in
         if (req.session && req.session.userId) {
             // Make sure the user is trying to move from coursesToTake to coursesTaken
-            if (req.body.listName === "coursesToTake" && req.body.userCourse) {
+            if (req.body.listName === "coursesToTake") {
                 // Delete the course from coursesToTake
                 Database.users.updateOne({ _id: Database.makeId(req.session.userId) }, { $pull: { coursesToTake: req.body.userCourse } })
                     .then((result) => {
@@ -277,16 +290,19 @@ export module User {
                                         res.status(200).send({ message: "Successful move course" });
                                         return res.end();
                                     } else {
+                                        console.log("here2");
                                         res.status(500).send({ message: "Unsuccessful move course" });
                                         return res.end();
                                     }
                                 }).catch(console.error);
                         } else {
+                            console.log("here1");
                             res.status(500).send({ message: "Unsuccessful move course" });
                             return res.end();
                         }
                     }).catch(console.error);
             } else {
+                console.log("here");
                 res.status(500).send({ message: "Unsuccessful move course" });
                 return res.end();
             }
