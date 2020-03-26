@@ -1,62 +1,76 @@
-<!-- 
+
 <div class="text-center">
-    <h1>
+     <div class="pb-4">
+        <img src="https://i.pinimg.com/originals/bc/3a/f1/bc3af19f458ebfcb411463725fd1e8ab.png"
+            style="width:10%;height:10%;">
+    </div>
+    <h2>
         My UCF Graduation Plan
-    </h1>
-    <br>
+    </h2>
+    <button mdbBtn color="yellow" (click)="basicModal.show()">View</button>
+</div>
 
-</div> -->
-
-
-<div class="container-fluid">
-    <div class="row flex-row flex-nowrap">
-        <div class="col-4" *ngFor="let yearly of mp.value.entries()">
-            <div class="text-center">
-                <h2>{{yearly[0]}}</h2>
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1"
+    role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog-scrollable modal-frame modal-bottom modal-fluid" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <br>
+                <button type="button" class="close pull-right"
+                    aria-label="Close" (click)="basicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
-            <div *ngFor="let semesterly of yearly[1].entries()">
-                <div class="pb-3">
-                    <mdb-card>
-                        <!--Card image-->
-                        <div *ngIf="semesterly[0]==='SPRING'">
-                            <mdb-card-img
-                                src="https://business.ucf.edu/wp-content/uploads/2014/11/millican-hall-reflecting-pond.jpg"
-                                alt="Card image cap"></mdb-card-img>
-                        
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row flex-row flex-nowrap">
+                        <div class="col-3" *ngFor="let yearly of mp.value.entries()">
+                            <div class="text-center">
+                                <h2>{{yearly[0]}}</h2>
+                            </div>
+                            <div *ngFor="let semesterly of yearly[1].entries()">
+                                <div class="pb-3">
+                                    <mdb-card>
+                                        <div *ngIf="semesterly[0]==='SPRING'">
+                                            <mdb-card-img
+                                                src="https://business.ucf.edu/wp-content/uploads/2014/11/millican-hall-reflecting-pond.jpg"
+                                                alt="Card image cap"></mdb-card-img>
+                                        </div>
+
+                                        <div *ngIf="semesterly[0]==='SUMMER'">
+                                            <mdb-card-img
+                                                src="https://www.ucf.edu/admissions/undergraduate/wp-content/uploads/sites/4/2018/09/Campus-VistsTours-header-1600x550-1600x500.jpg"
+                                                alt="Card image cap"></mdb-card-img>
+                                        </div>
+
+                                        <div *ngIf="semesterly[0]==='FALL'">
+                                            <mdb-card-img
+                                                src="https://apopka-1x1yusplq.stackpathdns.com/wp-content/uploads/2019/10/785_university_of_central_florida_02.jpg"
+                                                alt="Card image cap"></mdb-card-img>
+                                        </div>
+
+                                        <mdb-card-body>
+
+                                            <mdb-card-title>
+                                                <h4>{{semesterly[0]}}
+                                                    {{yearly[0]}}</h4>
+                                            </mdb-card-title>
+
+                                            <mdb-card-text>
+                                                <ul>
+                                                    <span *ngFor="let c of
+                                                        semesterly[1]">
+
+                                                        <li>{{c.courseInfo.name}}</li>
+                                                    </span></ul>
+                                            </mdb-card-text>
+
+                                        </mdb-card-body>
+                                    </mdb-card></div>
+                            </div>
                         </div>
-
-                        <div *ngIf="semesterly[0]==='SUMMER'">
-                            <mdb-card-img
-                                src="https://www.ucf.edu/admissions/undergraduate/wp-content/uploads/sites/4/2018/09/Campus-VistsTours-header-1600x550-1600x500.jpg"
-                                alt="Card image cap"></mdb-card-img>
-                        </div>
-
-                        <div *ngIf="semesterly[0]==='FALL'">
-                            <mdb-card-img
-                                src="https://apopka-1x1yusplq.stackpathdns.com/wp-content/uploads/2019/10/785_university_of_central_florida_02.jpg"
-                                alt="Card image cap"></mdb-card-img>
-                        </div>
-
-                        <!--Card content-->
-                        <mdb-card-body>
-
-                            <!--Title-->
-                            <mdb-card-title>
-                                <h4>{{semesterly[0]}} {{yearly[0]}}</h4>
-                            </mdb-card-title>
-
-                            <!--Text-->
-                            <mdb-card-text>
-                                <ul>
-                                    <span *ngFor="let c of semesterly[1]">
-
-                                        <li>{{c.courseInfo.name}}</li>
-                                    </span></ul>
-
-                            </mdb-card-text>
-
-                        </mdb-card-body>
-                    </mdb-card></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

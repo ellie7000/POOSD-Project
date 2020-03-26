@@ -23,9 +23,14 @@ export class PlannerComponent implements OnInit {
 
   modalRef: MDBModalRef;
 
+  years: any = [];
+  semesters: any = [];
+  course: any = [];
+
   constructor(
     private userService: UserService,
-    private coursesService: CoursesService) { }
+    private coursesService: CoursesService,
+    private modalService: MDBModalService) { }
 
   async ngOnInit() {
     this.user = await this.userService.getUser();
@@ -86,30 +91,22 @@ export class PlannerComponent implements OnInit {
     }
 
     for (const year of map.keys()) {
+      this.years.push(year);
       for (const semester of map.get(year).keys()) {
+        this.semesters.push(semester);
         for (const c of map.get(year).get(semester)) {
-          console.log(year + " " + semester + " ");
-          console.log(c);
-
-
+          // console.log(year + " " + semester + " ");
+          // console.log(c);
+          this.course.push(c);
         }
       }
     }
 
+    console.log(this.years);
+    console.log(this.semesters);
+    console.log(this.course);
+
     this.mp.next(map);
-
-    
-    // group it up by year
-    // then by season
-
-    // then you have some structure
-    // coursesBy[Year][Sem]
-
-    
-
-    //console.log(this.courses);
   }
-
-
 
 }
