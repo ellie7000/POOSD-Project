@@ -6,5 +6,6 @@
   - [CourseComponenet Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/profile/course/course.component.spec.ts)
   - [CoursesComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/profile/courses/courses.component.spec.ts)
   - [MajorComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/profile/major/major.component.spec.ts)
+  - [RequiredCourses Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/profile/required-courses/required-courses.component.spec.ts)
 - [RegisterComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/register/register.component.spec.ts)
 - [AppComponent Test](https://github.com/ellie7000/POOSD-Project/blob/master/src/client/src/app/app.component.spec.ts)
