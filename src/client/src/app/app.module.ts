@@ -54,6 +54,7 @@ import { RequiredCoursesComponent } from './profile/required-courses/required-co
     CoursesComponent,
     CourseComponent,
     RequiredCoursesComponent,
+
   ],
   entryComponents: [
     MajorComponent,

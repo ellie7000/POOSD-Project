@@ -3,6 +3,7 @@ import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
+import { Course } from '../models/course.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,8 @@ export class UserService {
   public _getSelectMajorPromise: Promise<User>;
   public _registerPromise: Promise<User>;
   public _getUpdateCoursePromise: Promise<User>;
+  public _getUserMajorRequirementsPromise: Promise<Course[]>;
+  public _getMoveCoursePromise: Promise<User>;
 
   constructor(private http: HttpClient, private cookies: CookieService) {
     if (cookies.get('sid')) {
@@ -42,6 +45,10 @@ export class UserService {
 
   async getUser() {
     return this._getUserPromise = this.http.get<User>('http://localhost:4200/api/user', {}).toPromise();
+  }
+
+  async getUserMajorRequirements() {
+    return this._getUserMajorRequirementsPromise = this.http.get<Course[]>('http://localhost:4200/api/user/majorRequirements', {}).toPromise();
   }
 
   async addCourse(courseId: string, semester: string, grade: string, listName: string) {
@@ -87,6 +94,17 @@ export class UserService {
       "courseId": courseId,
       "semester": semester,
       "grade": grade
+    }).toPromise();
+  }
+
+  async moveCourse(courseId: string, semester: string, grade: string, listName: string) {
+    return this._getMoveCoursePromise = this.http.put<User>('http://localhost:4200/api/user/moveCourse', {
+      "listName": listName,
+      "userCourse": {
+        "courseId": courseId,
+        "semester": semester,
+        "grade": grade
+      }
     }).toPromise();
   }
 

@@ -16,7 +16,12 @@
             <br>
             Credits: {{course.credits}}
             <br>
-            Grade: {{userGrade}}
+            <div *ngIf="listName==='coursesToTake'">
+                Projected Grade: {{userGrade}}
+            </div>
+            <div *ngIf="listName==='coursesTaken'">
+                Grade: {{userGrade}}
+            </div>
             <select class="browser-default custom-select"
                 [(ngModel)]="userGrade">
                 <option *ngFor="let grade of grades">
@@ -35,6 +40,10 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-danger"
                 (click)="modalRef.hide(); onDelete()" mdbWavesEffect>Delete</button>
+            <div *ngIf="listName==='coursesToTake'">
+                <button mdbBtn type="button" class="btn" color="black"
+                (click)="modalRef.hide(); onMove()" mdbWavesEffect>Move To Taken List</button>
+            </div>
             <button type="button" class="btn btn-success"
                 (click)="modalRef.hide(); onSave()" mdbWavesEffect>Save</button>
         </div>

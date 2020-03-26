@@ -38,4 +38,9 @@ export class CourseComponent implements OnInit {
     window.location.reload();
   }
 
+  onMove() {
+    this.userService.moveCourse(this.course._id, this.userCourse.semester, this.userCourse.grade, this.listName);
+    window.location.reload();
+  }
+
 }

@@ -18,15 +18,19 @@ export class RequiredCoursesComponent implements OnInit {
 
   constructor(
     public modalRef: MDBModalRef,
-    private majorService: MajorService,
     private userService: UserService) { }
 
   async ngOnInit() {
     this.user = await this.userService.getUser();
-    this.courses = (await this.majorService.getRequiredCourses(this.user.majorId));
+    this.courses = (await this.userService.getUserMajorRequirements());
+    console.log(this.courses);
   }
 
   async onSave() {
+    console.log(this.courses);
+    for (let c of this.courses) {
+      this.userService.addCourse(c._id, "", "", "coursesToTake");
+    }
     //window.location.reload();
   }
 
