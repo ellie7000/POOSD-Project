@@ -381,6 +381,13 @@ export module User {
                     res.status(403).send({ message: "User has not taken any courses" });
                     return res.end();
                 }
+                if(user.coursesToTake) {
+                    for(var i = 0; i < user.coursesToTake.length; i++) {
+                        if(user.coursesToTake[i].grade) {
+                            grades.push(user.coursesToTake[i].grade);
+                        }
+                    }
+                }
 
             } else {
                 res.status(403).send({ message: "Could not find user" });
