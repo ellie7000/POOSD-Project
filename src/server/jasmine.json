@@ -1,5 +1,0 @@
-{
-    "spec_dir": "../tests/server/test_ts",
-    "spec_files": ["**/*controllers_test.js"],
-    "random": false
- }

@@ -1,124 +1,27 @@
-# Product Vision
+# Client
 
-The KnightsPath Course Planner is a website for UCF students who want to create a customized graduation plan. On our website you will be able to track your progress, get customized class reccomendations based on your career interests, access a GPA calculator, and generate a long term graduation plan. Unlike our competitor, MyUCF’s MyKnight Audit, which is inconvenient and hard to visualize your progress, our product is more user friendly, interactive, and visually appealing.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
-## Team Members
+## Development server
 
-- Ellie Kozlowski
-- Luke Blanchard
-- Abhishek Matange
-- Christa Lawrence
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Sprint 1
+## Code scaffolding
 
-- [Product Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=0)
-- [Sprint Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=557870172)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1580002156)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Sprint 2
+## Build
 
-- [Product Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=0)
-- [Sprint Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=2010733833)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=618888712)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- Degign Documents
-  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
-  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
-  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
-- [Demonstration](https://youtu.be/w-adC8l6Ioc)
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Sprint 3
+## Running unit tests
 
-- [Product Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=0)
-- [Sprint Backlog](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=605195646)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1578905421)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- Design Documents
-  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
-  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
-  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
-- [Demonstration](https://youtu.be/6nRWWrn1EQs)
-- [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
-- [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Sprint 4
+## Running end-to-end tests
 
-- [Responsibilities](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=249871715)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1288520732)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- Design Documents
-  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
-  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
-  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
-- [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
-- [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
-- [Demonstration](https://youtu.be/wYlldhglhwQ)
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Sprint 5
+## Further help
 
-- [Responsibilities](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1717204547)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1533685206)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- Design Documents
-  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
-  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
-  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
-- [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
-- [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
-- [Demonstration](https://youtu.be/T8To_F3uswA)
-
-## Sprint 6
-
-- [Responsibilities](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=811616818)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1942152241)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- Design Documents
-  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
-  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
-  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
-- [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
-- [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
-- [Demonstration](https://youtu.be/oswtyPaRCfk)
-
-## Sprint 7
-
-- [Responsibilities](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1620251149)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1838896217)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- Design Documents
-  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
-  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
-  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
-- [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
-- [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
-- [Demonstration](https://youtu.be/omY-i4Qyj2w)
-
-## Sprint 8
-
-- [Responsibilities](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1278219684)
-- [Requirements](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=1870853085)
-- [Trello Board](https://trello.com/b/A3Omyst5/poosd-11)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=893626169)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1mksWZmzuHh9MqTosTzmQ1BqDSLkj5ZbiHhU3gfj2-XQ/edit#gid=560661007)
-- Design Documents
-  - [System Architecture](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md)
-  - [UI Diagram](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#user-interface-design)
-  - [Class Diagrams](https://github.com/ellie7000/POOSD-Project/blob/master/artifacts/architecture.md#major-classes)
-- [Source Code](https://github.com/ellie7000/POOSD-Project/tree/master/src)
-- [Tests](https://github.com/ellie7000/POOSD-Project/tree/master/src/tests)
-- [Demonstration](https://youtu.be/0s-TVNPLJV4)
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

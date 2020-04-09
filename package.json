@@ -12,8 +12,10 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
+    "@angular/cli": "1.5.0",
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
@@ -25,6 +27,7 @@
     "angular-bootstrap-md": "^8.10.1",
     "angular-notifier": "^6.0.1",
     "chart.js": "^2.9.3",
+    "express": "^4.17.1",
     "mdbootstrap": "^4.14.0",
     "ngx-cookie-service": "^2.4.0",
     "rxjs": "^6.4.0",
