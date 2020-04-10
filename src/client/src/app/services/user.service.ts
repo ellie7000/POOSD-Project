@@ -29,7 +29,7 @@ export class UserService {
   }
 
   async login(username: string, password: string) {
-    await (this._loginPromise = this.http.post<User>('http://localhost:4200/api/login', {
+    await (this._loginPromise = this.http.post<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/login', {
       "username": username,
       "password": password
     }).toPromise());
@@ -38,21 +38,21 @@ export class UserService {
   }
 
   async logout() {
-    await (this._loginPromise = this.http.post<User>('http://localhost:4200/api/logout', {}).toPromise());
+    await (this._loginPromise = this.http.post<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/logout', {}).toPromise());
     this.isUserLoggedIn.next(false);
   }
 
 
   async getUser() {
-    return this._getUserPromise = this.http.get<User>('http://localhost:4200/api/user', {}).toPromise();
+    return this._getUserPromise = this.http.get<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/user', {}).toPromise();
   }
 
   async getUserMajorRequirements() {
-    return this._getUserMajorRequirementsPromise = this.http.get<Course[]>('http://localhost:4200/api/user/majorRequirements', {}).toPromise();
+    return this._getUserMajorRequirementsPromise = this.http.get<Course[]>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/user/majorRequirements', {}).toPromise();
   }
 
   async addCourse(courseId: string, semester: string, grade: string, listName: string) {
-    return this._getAddCoursePromise = this.http.put<User>('http://localhost:4200/api/user/course', { 
+    return this._getAddCoursePromise = this.http.put<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/user/course', { 
       "listName": listName,
         "userCourse": {
           "courseId": courseId,
@@ -63,13 +63,13 @@ export class UserService {
   }
 
   async selectMajor(majorId: string) {
-    return this._getSelectMajorPromise = this.http.put<User>('http://localhost:4200/api/user/major', { 
+    return this._getSelectMajorPromise = this.http.put<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/user/major', { 
       "majorId": majorId 
     }).toPromise();
   }
 
   async register(firstName: string, lastName: string, email: string, username: string, password: string) {
-    return this._registerPromise = this.http.post<User>('http://localhost:4200/api/signup', {
+    return this._registerPromise = this.http.post<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/signup', {
       "name": firstName + " " + lastName,
       "email": email, 
       "username": username,
@@ -78,7 +78,7 @@ export class UserService {
   }
 
   async deleteCourse(courseId: string, semester: string, grade: string, listName: string) {
-    return this._getDeleteCoursePromise = this.http.put<User>('http://localhost:4200/api/user/deleteCourse/', {
+    return this._getDeleteCoursePromise = this.http.put<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/user/deleteCourse/', {
       "listName": listName,
       "userCourse": {
         "courseId": courseId,
@@ -89,7 +89,7 @@ export class UserService {
   }
 
   async updateCourse(courseId: string, semester: string, grade: string, listName: string) {
-    return this._getUpdateCoursePromise = this.http.put<User>('http://localhost:4200/api/user/updateCourse', {
+    return this._getUpdateCoursePromise = this.http.put<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/user/updateCourse', {
       "listName": listName,
       "courseId": courseId,
       "semester": semester,
@@ -98,7 +98,7 @@ export class UserService {
   }
 
   async moveCourse(courseId: string, semester: string, grade: string, listName: string) {
-    return this._getMoveCoursePromise = this.http.put<User>('http://localhost:4200/api/user/moveCourse', {
+    return this._getMoveCoursePromise = this.http.put<User>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/user/moveCourse', {
       "listName": listName,
       "userCourse": {
         "courseId": courseId,

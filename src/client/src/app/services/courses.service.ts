@@ -19,7 +19,7 @@ export class CoursesService {
   }
 
   async getCourses() {
-    await (this._coursesPromise = this.http.get<Course[]>('http://localhost:4200/api/courses').toPromise());
+    await (this._coursesPromise = this.http.get<Course[]>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/courses').toPromise());
     for (const m of await this._coursesPromise) {
       this.coursesMap.set(m.name, m);
       this.coursesMapId.set(m._id, m);
@@ -28,7 +28,7 @@ export class CoursesService {
 
   async getCourse(courseId: string) {
     let course;
-    await (course = this.http.get<Course>('http://localhost:4200/api/course/' + courseId).toPromise());
+    await (course = this.http.get<Course>((process.env.BASE_PROD_URL || 'http://localhost:4200') + '/api/course/' + courseId).toPromise());
     return course;
   }
 }
