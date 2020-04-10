@@ -31,7 +31,7 @@ export class RequiredCoursesComponent implements OnInit {
     for (let c of this.courses) {
       this.userService.addCourse(c._id, "", "", "coursesToTake");
     }
-    //window.location.reload();
+    window.location.reload();
   }
 
 }
