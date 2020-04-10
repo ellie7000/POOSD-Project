@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Major } from '../models/major.model';
 import { Course } from '../models/course.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class MajorService {
   }
 
   async getMajors() {
-    this._getMajorsPromise = this.http.get<Major[]>('http://localhost:8080/api/majors', {}).toPromise();
+    this._getMajorsPromise = this.http.get<Major[]>(environment.api + '/api/majors', {}).toPromise();
     this.majors = await this._getMajorsPromise;
     for (const m of this.majors) {
       this.majorsMap.set(m.name, m);
@@ -29,7 +30,7 @@ export class MajorService {
   }
 
   async getRequiredCourses(majorId: string) {
-    return this._getRequiredCoursesPromise = this.http.get<Course[]>('http://localhost:8080/api/major/' + majorId + '/requirements', {}).toPromise();
+    return this._getRequiredCoursesPromise = this.http.get<Course[]>(environment.api + '/api/major/' + majorId + '/requirements', {}).toPromise();
   }
  
 }
