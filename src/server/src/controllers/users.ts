@@ -363,4 +363,39 @@ export module User {
         }).catch(console.error);
     };
 
+    export const getGrades = async (req: Express.Request, res: Express.Response) => {
+        await Database.connectToMongo();
+        res.type("json");
+        
+        var grades: Array<string> = new Array();
+        if(req.session && req.session.userID) {
+            var user = await (Database.users.findOne({ _id: Database.makeId(req.session?.userId) }))
+            if(user) {
+                if(user.coursesTaken) {
+                    for(var i = 0; i < user.coursesTaken.length; i++) {
+                        if(user.coursesTaken[i].grade) {
+                            grades.push(user.coursesTaken[i].grade)
+                        }
+                    }
+                } else {
+                    res.status(403).send({ message: "User has not taken any courses" });
+                    return res.end();
+                }
+                if(user.coursesToTake) {
+                    for(var i = 0; i < user.coursesToTake.length; i++) {
+                        if(user.coursesToTake[i].grade) {
+                            grades.push(user.coursesToTake[i].grade);
+                        }
+                    }
+                }
+
+            } else {
+                res.status(403).send({ message: "Could not find user" });
+                return res.end();
+            }
+        } else {
+            res.status(403).send({ message: "No user logged in" });
+            return res.end();
+        }
+    }
 }
